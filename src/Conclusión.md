@@ -1,0 +1,4 @@
+# Conclusión
+Con esto, concluimos nuestro profundo viaje por el mundo de la criptografía, explorando la generación de claves privadas y públicas, así como sus diversas implementaciones. Hemos aprendido cómo Starknet y los esquemas de firmas pueden prevenir ataques criptoanalíticos, y hemos visto cómo las STARKs han sido diseñadas desde su inicio para brindar seguridad matemática frente a ataques cuánticos, siguiendo sus principios fundamentales.
+
+Starknet está sentando las bases de la criptografía moderna y creando un ecosistema escalable, integro y seguro por una de las mayores descentralizada como Ethereum, escalemos juntos.

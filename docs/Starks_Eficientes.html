@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>STARKs eficientes - L2 Book</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="Introducción.html"><strong aria-hidden="true">1.</strong> Introducción</a></li><li class="chapter-item expanded "><a href="Bases_Criptográficas.html"><strong aria-hidden="true">2.</strong> Bases Criptográficas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Criptografía_Simétrica.html"><strong aria-hidden="true">2.1.</strong> Criptografía Simétrica</a></li><li class="chapter-item "><a href="Criptografía_Asimétrica.html"><strong aria-hidden="true">2.2.</strong> Criptografía Asimétrica</a></li><li class="chapter-item "><a href="Criptografía_Híbridas.html"><strong aria-hidden="true">2.3.</strong> Criptografía Híbridas</a></li><li class="chapter-item "><a href="Firmas_Digitales.html"><strong aria-hidden="true">2.4.</strong> Firmas Digitales</a></li><li class="chapter-item "><a href="Generador_de_Claves.html"><strong aria-hidden="true">2.5.</strong> Generador de Claves</a></li><li class="chapter-item "><a href="Funciones_Hash.html"><strong aria-hidden="true">2.6.</strong> Funciones Hash</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Merkle_Tree_en_Blockchain.html"><strong aria-hidden="true">2.6.1.</strong> Merkle Tree en Blockchain</a></li><li class="chapter-item "><a href="Patricia_Merkle_Trie.html"><strong aria-hidden="true">2.6.2.</strong> Patricia Merkle Trie</a></li><li class="chapter-item "><a href="Sha256.html"><strong aria-hidden="true">2.6.3.</strong> SHA-256</a></li><li class="chapter-item "><a href="Keccak.html"><strong aria-hidden="true">2.6.4.</strong> Keccak - El nuevo SHA-3</a></li></ol></li><li class="chapter-item "><a href="Quantum_Secure.html"><strong aria-hidden="true">2.7.</strong> Quantum Secure</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Grover.html"><strong aria-hidden="true">2.7.1.</strong> Grover</a></li><li class="chapter-item "><a href="Shor.html"><strong aria-hidden="true">2.7.2.</strong> Shor</a></li><li class="chapter-item "><a href="Lattice.html"><strong aria-hidden="true">2.7.3.</strong> Lattice</a></li><li class="chapter-item "><a href="Kyber_Crystal.html"><strong aria-hidden="true">2.7.4.</strong> Kyber Crystal</a></li><li class="chapter-item "><a href="EOA_AA.html"><strong aria-hidden="true">2.7.5.</strong> EOA y AA - Firmantes</a></li></ol></li><li class="chapter-item "><a href="Starknet_AA.html"><strong aria-hidden="true">2.8.</strong> Starknet AA</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Stark_Curve.html"><strong aria-hidden="true">2.8.1.</strong> EC en Cairo - STARK Curve</a></li><li class="chapter-item "><a href="Secp256r1.html"><strong aria-hidden="true">2.8.2.</strong> MyBraavos Secp256r1</a></li><li class="chapter-item "><a href="Stark_Key.html"><strong aria-hidden="true">2.8.3.</strong> Creación de una Stark Key en StarkEx</a></li></ol></li><li class="chapter-item "><a href="Starknet_funciones_hash.html"><strong aria-hidden="true">2.9.</strong> Starknet y Funciones Hash</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Keccak_Starknet.html"><strong aria-hidden="true">2.9.1.</strong> Hash Keccak</a></li><li class="chapter-item "><a href="Pedersen_Starknet.html"><strong aria-hidden="true">2.9.2.</strong> Hash Pedersen</a></li><li class="chapter-item "><a href="Poseidon_Starknet.html"><strong aria-hidden="true">2.9.3.</strong> Hash Poseidon</a></li><li class="chapter-item "><a href="Hashing_Array.html"><strong aria-hidden="true">2.9.4.</strong> Hashing de Array</a></li></ol></li><li class="chapter-item expanded "><a href="Starks.html"><strong aria-hidden="true">2.10.</strong> S-T-ARKs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Starks_Propiedades.html"><strong aria-hidden="true">2.10.1.</strong> Propiedades de las STARKs</a></li><li class="chapter-item expanded "><a href="Starks_Eficientes.html" class="active"><strong aria-hidden="true">2.10.2.</strong> STARKs eficientes</a></li><li class="chapter-item "><a href="Starks_Iops.html"><strong aria-hidden="true">2.10.3.</strong> IOPs</a></li><li class="chapter-item "><a href="Starks_Polinomios.html"><strong aria-hidden="true">2.10.4.</strong> Polinomios</a></li></ol></li><li class="chapter-item "><a href="Starks_Creacion.html"><strong aria-hidden="true">2.11.</strong> Creación de un STARK</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Starks_Aritmetizacion.html"><strong aria-hidden="true">2.11.1.</strong> Aritmetización</a></li><li class="chapter-item "><a href="Starks_Traza.html"><strong aria-hidden="true">2.11.2.</strong> Polinomio y Composición para nuestra Traza</a></li><li class="chapter-item "><a href="Starks_Bajo.html"><strong aria-hidden="true">2.11.3.</strong> Pruebas de Bajo Grado</a></li><li class="chapter-item "><a href="Starks_Fri.html"><strong aria-hidden="true">2.11.4.</strong> FRI</a></li></ol></li><li class="chapter-item "><a href="Cairo.html"><strong aria-hidden="true">2.12.</strong> Leve introducción a Cairo (AIR)</a></li><li class="chapter-item "><a href="Conclusión.html"><strong aria-hidden="true">2.13.</strong> Conclusiones</a></li></ol></li><li class="chapter-item "><a href="Arquitectura_Starkware.html"><strong aria-hidden="true">3.</strong> Arquitectura Starkware</a></li><li class="chapter-item "><a href="Otras_Arquitecturas.html"><strong aria-hidden="true">4.</strong> Otras Arquitecturas</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">L2 Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="starks-eficientes"><a class="header" href="#starks-eficientes">STARKS eficientes</a></h2>
+<p>Está llegando el momento de comprender como los STARKs son una versión más eficiente de las <a href="https://en.wikipedia.org/wiki/Probabilistically_checkable_proof"><strong>(PCP)</strong></a>, un protocolo que permite establecer la exactitud de las declaraciones de <strong>CI</strong>, mediante una verificación aleatoria local en una prueba larga, este protocolo se realiza entre un prover <strong>PCP</strong> y un verifier <strong>PCP</strong>.</p>
+<p>El prover <strong>PCP</strong> produce una cadena de prueba <code>𝚿</code> que codifica el seguimiento de cálculo de la declaración de <code>CI</code>, a pesar de que <code>𝚿</code> es más larga que la traza de cálculo de pasos <code>T</code>. Sin embargo, la cadena de prueba <code>𝚿</code> tiene la propiedad especial de que puede ser validada a través de una prueba probabilística que lee solo una pequeña parte de <code>𝚿</code>.</p>
+<p>El verifier <strong>PCP</strong>, al recibir la misma declaración de <strong>CI</strong> <code>(A, x, y, T)</code>, puede validar la cadena de prueba <code>𝚿</code> leyendo aleatoriamente unas pocas ubicaciones de <code>𝚿</code> y luego realizar una <strong>&quot;verificación local&quot;</strong> económica en los valores leídos. El número de ubicaciones de lectura puede ser una pequeña constante, como 3, independientemente de la longitud de la traza de cálculo <code>T</code>.</p>
+<p>Si la declaración de CI es verdadera, el verifier siempre aceptará. Sin embargo, si la declaración de CI es falsa, el verificador la rechazará con alta probabilidad, sin importar cómo se haya elegido la cadena de prueba <code>𝚿</code>.</p>
+<p><img src="./assets/Stark_Sudoku.png" alt="graph" /></p>
+<div align="center">
+<em></em>
+</div>
+<p>En la imagen animada podemos ver un ejemplo de <strong>PCP</strong> con un conjunto de resticciones un sudoku y ahora veremos como los STARKs eficiente pueden mejorar la eficiencia de las <strong>PCP</strong> y <strong>MPCP</strong> con <strong>IOPs</strong>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="Starks_Propiedades.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="Starks_Iops.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="Starks_Propiedades.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="Starks_Iops.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Generador de Claves - L2 Book</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="Introducción.html"><strong aria-hidden="true">1.</strong> Introducción</a></li><li class="chapter-item expanded "><a href="Bases_Criptográficas.html"><strong aria-hidden="true">2.</strong> Bases Criptográficas</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Criptografía_Simétrica.html"><strong aria-hidden="true">2.1.</strong> Criptografía Simétrica</a></li><li class="chapter-item "><a href="Criptografía_Asimétrica.html"><strong aria-hidden="true">2.2.</strong> Criptografía Asimétrica</a></li><li class="chapter-item "><a href="Criptografía_Híbridas.html"><strong aria-hidden="true">2.3.</strong> Criptografía Híbridas</a></li><li class="chapter-item "><a href="Firmas_Digitales.html"><strong aria-hidden="true">2.4.</strong> Firmas Digitales</a></li><li class="chapter-item expanded "><a href="Generador_de_Claves.html" class="active"><strong aria-hidden="true">2.5.</strong> Generador de Claves</a></li><li class="chapter-item "><a href="Funciones_Hash.html"><strong aria-hidden="true">2.6.</strong> Funciones Hash</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Merkle_Tree_en_Blockchain.html"><strong aria-hidden="true">2.6.1.</strong> Merkle Tree en Blockchain</a></li><li class="chapter-item "><a href="Patricia_Merkle_Trie.html"><strong aria-hidden="true">2.6.2.</strong> Patricia Merkle Trie</a></li><li class="chapter-item "><a href="Sha256.html"><strong aria-hidden="true">2.6.3.</strong> SHA-256</a></li><li class="chapter-item "><a href="Keccak.html"><strong aria-hidden="true">2.6.4.</strong> Keccak - El nuevo SHA-3</a></li></ol></li><li class="chapter-item "><a href="Quantum_Secure.html"><strong aria-hidden="true">2.7.</strong> Quantum Secure</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Grover.html"><strong aria-hidden="true">2.7.1.</strong> Grover</a></li><li class="chapter-item "><a href="Shor.html"><strong aria-hidden="true">2.7.2.</strong> Shor</a></li><li class="chapter-item "><a href="Lattice.html"><strong aria-hidden="true">2.7.3.</strong> Lattice</a></li><li class="chapter-item "><a href="Kyber_Crystal.html"><strong aria-hidden="true">2.7.4.</strong> Kyber Crystal</a></li><li class="chapter-item "><a href="EOA_AA.html"><strong aria-hidden="true">2.7.5.</strong> EOA y AA - Firmantes</a></li></ol></li><li class="chapter-item "><a href="Starknet_AA.html"><strong aria-hidden="true">2.8.</strong> Starknet AA</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Stark_Curve.html"><strong aria-hidden="true">2.8.1.</strong> EC en Cairo - STARK Curve</a></li><li class="chapter-item "><a href="Secp256r1.html"><strong aria-hidden="true">2.8.2.</strong> MyBraavos Secp256r1</a></li><li class="chapter-item "><a href="Stark_Key.html"><strong aria-hidden="true">2.8.3.</strong> Creación de una Stark Key en StarkEx</a></li></ol></li><li class="chapter-item "><a href="Starknet_funciones_hash.html"><strong aria-hidden="true">2.9.</strong> Starknet y Funciones Hash</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Keccak_Starknet.html"><strong aria-hidden="true">2.9.1.</strong> Hash Keccak</a></li><li class="chapter-item "><a href="Pedersen_Starknet.html"><strong aria-hidden="true">2.9.2.</strong> Hash Pedersen</a></li><li class="chapter-item "><a href="Poseidon_Starknet.html"><strong aria-hidden="true">2.9.3.</strong> Hash Poseidon</a></li><li class="chapter-item "><a href="Hashing_Array.html"><strong aria-hidden="true">2.9.4.</strong> Hashing de Array</a></li></ol></li><li class="chapter-item "><a href="Starks.html"><strong aria-hidden="true">2.10.</strong> S-T-ARKs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Starks_Propiedades.html"><strong aria-hidden="true">2.10.1.</strong> Propiedades de las STARKs</a></li><li class="chapter-item "><a href="Starks_Eficientes.html"><strong aria-hidden="true">2.10.2.</strong> STARKs eficientes</a></li><li class="chapter-item "><a href="Starks_Iops.html"><strong aria-hidden="true">2.10.3.</strong> IOPs</a></li><li class="chapter-item "><a href="Starks_Polinomios.html"><strong aria-hidden="true">2.10.4.</strong> Polinomios</a></li></ol></li><li class="chapter-item "><a href="Starks_Creacion.html"><strong aria-hidden="true">2.11.</strong> Creación de un STARK</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Starks_Aritmetizacion.html"><strong aria-hidden="true">2.11.1.</strong> Aritmetización</a></li><li class="chapter-item "><a href="Starks_Traza.html"><strong aria-hidden="true">2.11.2.</strong> Polinomio y Composición para nuestra Traza</a></li><li class="chapter-item "><a href="Starks_Bajo.html"><strong aria-hidden="true">2.11.3.</strong> Pruebas de Bajo Grado</a></li><li class="chapter-item "><a href="Starks_Fri.html"><strong aria-hidden="true">2.11.4.</strong> FRI</a></li></ol></li><li class="chapter-item "><a href="Cairo.html"><strong aria-hidden="true">2.12.</strong> Leve introducción a Cairo (AIR)</a></li><li class="chapter-item "><a href="Conclusión.html"><strong aria-hidden="true">2.13.</strong> Conclusiones</a></li></ol></li><li class="chapter-item "><a href="Arquitectura_Starkware.html"><strong aria-hidden="true">3.</strong> Arquitectura Starkware</a></li><li class="chapter-item "><a href="Otras_Arquitecturas.html"><strong aria-hidden="true">4.</strong> Otras Arquitecturas</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">L2 Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="key-generator"><a class="header" href="#key-generator">Key generator</a></h1>
+<p>Tenemos que entender cómo el generador de claves <a href="https://en.wikipedia.org/wiki/Key_generator"><strong>(Key generator)</strong></a> genera el Keypair, para lograrlo, es necesario trabajar con valores pseudoaleatorios que se utilizan en la generación de la private key. Un Key generator se puede implementar en un sistema con el propósito de generar y autenticar claves.</p>
+<p>Key generator puede implementarse en cualquier sistema criptográfico que utilice la curva elíptica, como es el caso de <code>secp256k1</code> (una curva optimizada basada en las propiedades matemáticas de las curvas elípticas para proporcionar un esquema de firma digital seguro y eficiente), como Bitcoin y Ethereum.</p>
+<p>Este generador de claves garantiza que, con alta probabilidad, las claves privadas generadas sean únicas y seguras, lo que a su vez respalda la integridad y autenticidad de las transacciones realizadas en la red.</p>
+<h2 id="generadores-de-números-pseudoaleatorios"><a class="header" href="#generadores-de-números-pseudoaleatorios">Generadores de números pseudoaleatorios</a></h2>
+<p>Para garantizar la seguridad usando la pseudoaleatoriedad estadística de un <strong>PRNG -</strong> <a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator"><strong>Pseudorandom number generator</strong></a>, es crucial contar con una semilla inicial. Si la semilla es fácilmente predecible, generará valores predecibles de números y todo el proceso será inseguro.</p>
+<p>Para lograr una inicialización segura del generador pseudoaleatorio, es necesario recolectar <a href="https://en.wikipedia.org/wiki/Entropy_(computing)"><strong>Entropía</strong></a>, que representa la aleatoriedad necesaria en el proceso.</p>
+<h2 id="entropía"><a class="header" href="#entropía">Entropía</a></h2>
+<p>La entropía o aleatoriedad impredecible en computación, generalmente se mide en bits. Tenemos varios ejemplos para entender el concepto y grado de aleatoriedad. Si mueve el mouse de su computadora, generará algunos eventos difíciles de predecir, como la ubicación de inicio y la ubicación final del cursor del mouse.</p>
+<blockquote>
+<p>Si suponemos que el mouse ha cambiado su posición en el rango de <code>[ 0 ... 255 píxeles ]</code>, la entropía recolectada de este movimiento del mouse debe ser de aproximadamente <strong>8 bits</strong>, porque <code>2⁸ = 255</code></p>
+</blockquote>
+<blockquote>
+<p>Si se le pide al usuario que piense en un número en el rango <code>[ 0 ... 1000 ]</code>, este número tendrá alrededor de <strong>9-10 bits</strong> de entropía porque, <code>2¹⁰ = 1024</code></p>
+</blockquote>
+<p>Para recolectar 256 bits de entropía, es decir, para generar de forma segura un número entero de 256 bits, deberá tener en cuenta una secuencia de varios eventos similares (como movimientos del mouse e interracidades del teclado del usuario).</p>
+<p>Aquí la importancia de dónde y cómo hemos generado nuestras claves privadas y públicas y las posibles vulnerabilidades en algunos malos usos.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="Firmas_Digitales.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="Funciones_Hash.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="Firmas_Digitales.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="Funciones_Hash.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

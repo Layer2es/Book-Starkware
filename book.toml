@@ -1,0 +1,14 @@
+[book]
+authors = ["Nadai2010"]
+language = "en"
+multilingual = false
+src = "src"
+title = "L2 Book"
+
+
+[preprocessor.gettext]
+after = ["links"]
+
+[output.html.fold]
+enable = true
+level = 0

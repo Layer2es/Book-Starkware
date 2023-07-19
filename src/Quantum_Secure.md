@@ -1,0 +1,23 @@
+# Quantum Secure
+Así que es hora de aprovechar lo que hemos aprendido y explorar lo que podría suceder en un escenario teórico apocalíptico. Pero antes comencemos con una breve descripción sobre [computación cuántica](https://es.wikipedia.org/wiki/Computaci%C3%B3n_cu%C3%A1ntica) para sumergirnos en el tema. **No es más que un modelo de computación basado en la** [**física cuántica**](https://es.wikipedia.org/wiki/Mec%C3%A1nica_cu%C3%A1ntica), que funciona de manera diferente a las computadoras clásicas (el tipo de computadoras que usamos habitualmente) y tiene la capacidad de realizar tareas que estas últimas no pueden, como romper ciertos algoritmos de manera eficiente.
+
+> **¡Así que espera un momento!** Antes de que tu imaginación se desborde y te veas rodeado de supercomputadoras cuánticas capaces de solucionar todos nuestros problemas, déjame contarte una pequeña anécdota.
+
+> _Ah, las computadoras cuánticas, esas criaturas de la física cuántica que nos hacen soñar con un futuro lleno de posibilidades. Pero, ¿sabías que no son máquinas mágicas capaces de resolver todos nuestros problemas informáticos en un abrir y cerrar de ojos?_
+
+> **Imagina esto:** las computadoras cuánticas son como esas personas brillantes que son súper eficientes en ciertas tareas, pero bastante débiles en otras. Son como el genio matemático que resuelve complicados problemas de cálculo en segundos, pero se le olvida cómo atarse los zapatos.
+
+> _Entonces, sí, las computadoras cuánticas pueden ser increíblemente poderosas cuando se trata de ciertos problemas específicos, como el factorizar números grandes o buscar en enormes bases de datos. Pero cuando se trata de tareas cotidianas, como revisar correos electrónicos o navegar por la web, bueno, digamos que son como un caracol tratando de correr una maratón._
+
+Después de esta pequeña relato, es importante comprender el concepto de criptografía post-cuántica [**(PQC)**](https://cryptobook.nakov.com/quantum-safe-cryptography), también conocida como [**Resistente a la Computación Cuántica**](https://cryptobook.nakov.com/quantum-safe-cryptography), se refiere a algoritmos criptográficos especialmente algoritmos de clave pública, que se consideran seguros contra los ataques criptoanalíticos llevados a cabo por computadoras cuánticas.
+
+A medida que avanza la computación cuántica, se espera que algunos algoritmos y técnicas criptográficas tradicionales utilizadas en los sistemas de seguridad actuales sean vulnerables a los ataques cuánticos. Esto se debe a la capacidad de las computadoras cuánticas para realizar cálculos a una escala exponencialmente mayor que las computadoras clásicas, lo que podría comprometer la seguridad de los sistemas criptográficos actuales.
+
+Es bien sabido en informática que las computadoras cuánticas podrán romper algunos algoritmos criptográficos, especialmente los criptosistemas de clave pública como **RSA**, el intercambio de llaves **Diffie–Hellman** y **ECDSA**, que dependen del [**IFP**](https://es.wikipedia.org/wiki/Factorizaci%C3%B3n_de_enteros) (problema de factorización en números primos), el [**DLP**](https://es.wikipedia.org/wiki/Logaritmo_discreto) (problema del logaritmo discreto) y el ECDLP (problema del logaritmo discreto de curva elíptica). Todos estos problemas podrían resolverse fácilmente en una computadora cuántica suficientemente poderosa que ejecute el algoritmo de Shor.
+
+Pero los algoritmos cuánticos no significarán el fin de la criptografía, porque:
+
+* Solo algunos criptosistemas son inseguros frente a la computación cuántica (como RSA, DHKE, ECDSA y ECDH).
+* Algunos criptosistemas son seguros frente a la computación cuántica y solo se verán ligeramente afectados (como los hash criptográficos, algoritmos [MAC](https://es.wikipedia.org/wiki/C%C3%B3digo_de_autenticaci%C3%B3n_de_mensaje) y cifrados de clave simétrica como [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard?wprov=srpw1_0), siempre que se utilicen tamaños de clave suficientemente grandes).
+
+A diferencia de la amenaza que representa la computación cuántica para los algoritmos de clave pública actuales, **la mayoría de los algoritmos criptográficos simétricos y las funciones hash actuales se consideran relativamente seguros contra ataques de computadoras cuánticas.** Si bien el algoritmo cuántico de Grover acelera los ataques contra los cifrados simétricos, duplicar el tamaño de la clave puede bloquear eficazmente estos ataques. Por lo tanto, la criptografía simétrica post-cuántica no necesita diferir significativamente de la criptografía simétrica actual.
