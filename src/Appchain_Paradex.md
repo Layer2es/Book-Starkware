@@ -1,0 +1,1 @@
+https://starkware.co/resource/paradex-starknets-first-appchain/
