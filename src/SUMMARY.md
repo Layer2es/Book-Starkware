@@ -73,7 +73,7 @@
         - [Herodotus Turbo](./Herodotus_Turbo.md)
         - [Casos de Usos](./Casos_de_uso.md)
         - [Ejemplos Storage Proof](./Ejemplos_Storage_Proof.md)
-        - [Proyectos SHH y Hackaton](./Proyectos_Storage_Proof)
+        - [Proyectos SHH y Hackaton](./Proyectos_Storage_Proof.md)
         - [Merkle Mountain Ranges en Cairo](./Merkle_Mountain_Ranges.md)
         - [Storage Proof Vs Oracle](./Storage_Proof_Oracle.md)
             - [Estado de Oracles en Starknet](./Estado_Oracle_Starknet.md)
