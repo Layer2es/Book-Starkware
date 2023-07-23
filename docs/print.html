@@ -958,8 +958,26 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <p>Starknet está sentando las bases de la criptografía moderna y creando un ecosistema escalable, integro y seguro por una de las mayores descentralizada como Ethereum, escalemos juntos.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="introducción-parte-2"><a class="header" href="#introducción-parte-2">Introducción Parte 2</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="arquitectura-starknet-y-cairo"><a class="header" href="#arquitectura-starknet-y-cairo">Arquitectura Starknet y Cairo</a></h1>
+<p>En este apartado exploraremos la arquitectura de Starknet y sus componentes fundamentales para comprender como es la construcción de aplicaciones web3 escalables. Starknet ha experimentado un crecimiento significativo como el primer rollup basado en ZK. Te proporcionaremos un conocimiento profundo de los elementos clave de Starknet, permitiéndote desarrollar e implementar dApps de manera eficiente.</p>
+<p>A lo largo de este documento, abordaremos los siguientes temas:</p>
+<ul>
+<li>**Nodos de L2: Una descripción general de los diferentes nodos de Starknet (Secuenciador, Verificador, Nodos completos e Indexador) y sus roles dentro de la red.
+Ciclo de vida de las transacciones: Una explicación detallada de los diferentes estados por los que pasa una transacción de capa 2, discutiendo los beneficios y riesgos de considerar un estado en particular como &quot;finalidad&quot;.
+Starknet OS: Una exploración de cómo el Secuenciador valida y ejecuta transacciones, y su conexión con la Abstracción de Cuentas (AA, por sus siglas en inglés).
+SHARP: Un examen del flujo de trabajo del Verificador para generar pruebas para Starknet y Starkex utilizando la recursividad, centrándose en el flujo de trabajo en lugar de las matemáticas detrás de STARKs.
+DA o Disponibilidad de datos: Una discusión sobre la Disponibilidad de Datos en Starknet en modo Rollup (excluyendo Volition por ahora).
+Componentes de L1: Un análisis exhaustivo del Verificador en la cadena y el Registro de Hechos, y una discusión sobre cómo funcionaría una salida de emergencia de capa 1.
+Puentes: Una explicación de cómo funciona la comunicación entre capa 1 y capa 2, y cómo se pueden crear puentes entre redes.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="componentes"><a class="header" href="#componentes">Componentes</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="secuenciadores"><a class="header" href="#secuenciadores">Secuenciadores</a></h1>
+<p>Los secuenciadores desempeñan un papel crucial en las soluciones blockchain y de Capa 2, ya que son responsables de gestionar el orden y la ejecución de las transacciones. En Starknet, los secuenciadores garantizan que las transacciones se ejecuten en un orden específico para prevenir el doble gasto y mantener la consistencia del estado de la red.</p>
+<p>Los secuenciadores reciben transacciones, las procesan según reglas predefinidas y producen una serie de acciones u cambios de estado ordenados. Estas acciones se agrupan en bloques y se incluyen en la cadena de bloques.</p>
+<p>Los secuenciadores desempeñan un papel vital en el rendimiento y la seguridad de Starknet al ejecutar transacciones y aplicar cambios de estado según las reglas y requisitos del protocolo.</p>
+<p>El secuenciador de Starknet es especialmente relevante debido al uso de pruebas de conocimiento cero (ZKPs, por sus siglas en inglés). El correcto funcionamiento del secuenciador garantiza que las transacciones se ejecuten de manera compatible con la generación de ZKPs, lo que contribuye a la escalabilidad y seguridad general de Starknet. Los usuarios interactúan con los secuenciadores al enviar transacciones a Starknet, siendo este el primer paso hacia el escalado de STARK. Una vez que un secuenciador ensambla un bloque, el protocolo de consenso lo aprueba y los probadores generan una prueba para la Capa 1 (L1).</p>
+<p>En Ethereum, los mineros ordenan y ejecutan las transacciones, mientras que los secuenciadores cumplen un propósito similar en Starknet. Los secuenciadores procesan las transacciones, las agregan y producen bloques, lo que los convierte en una pieza fundamental de la infraestructura del ecosistema de Starknet.</p>
+<p>A medida que Starknet evoluciona, es crucial mejorar el rendimiento de los secuenciadores. Aquí es donde se vuelve fundamental la transición a secuenciadores basados en Rust. Al reescribir los componentes principales del secuenciador en Rust, la red puede lograr un mejor rendimiento, mayor capacidad y mayor resistencia.</p>
+<p>Algunos ejemplos de implementaciones de secuenciadores incluyen <a href="https://github.com/lambdaclass/starknet_tendermint_sequencer">Starknet Tendermint Sequencer de LambdaClass</a> y <a href="https://github.com/keep-starknet-strange/madara">Madara</a>, un secuenciador de Starknet impulsado por Rust utilizando Substrate.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="secuenciadores-basados-en-rust"><a class="header" href="#secuenciadores-basados-en-rust">Secuenciadores Basados en Rust</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="madara---bases-de-su-arquitectura"><a class="header" href="#madara---bases-de-su-arquitectura">Madara - Bases de su arquitectura</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="full-nodes---starknet-stack"><a class="header" href="#full-nodes---starknet-stack">Full Nodes - Starknet Stack</a></h1>
@@ -1022,6 +1040,22 @@ La combinación de criptografía de clave pública para el intercambio de claves
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
