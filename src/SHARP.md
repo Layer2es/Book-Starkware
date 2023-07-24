@@ -1,1 +1,14 @@
-# Verifier - SHARP
+# SHARP
+SHARP es como el transporte público para las pruebas en Starknet, que agrega múltiples programas Cairo para ahorrar costos y aumentar la eficiencia. Utiliza pruebas recursivas que permiten la paralelización y optimización, lo que lo hace más asequible para todos los usuarios. Los servicios críticos como la gateway, el validator y el Prover trabajan juntos con un diseño sin estado para mayor flexibilidad. La adopción de SHARP por parte de StarkEx, Starknet y usuarios externos (a través de Cairo Playground) resalta su importancia y potencial para la optimización futura.
+
+Veámos cómo SHARP, ha evolucionado para incorporar pruebas recursivas y su papel en la reducción de costos y mejora de la eficiencia dentro de la red Starknet.
+
+SHARP, que significa Shared Prover (Proveedor Compartido), es un mecanismo utilizado en Starknet que agrupa múltiples programas Cairo de diferentes usuarios, cada uno con una lógica diferente. Estos programas Cairo se ejecutan juntos, generando una prueba única común a todos los programas. En lugar de enviar la prueba directamente al verificador de Solidity en Ethereum, se envía inicialmente a un programa Verificador STARK escrito en Cairo. El Verificador STARK genera una nueva prueba para confirmar que las pruebas iniciales fueron verificadas, que luego puede enviarse de vuelta a SHARP y al Verificador STARK usando el proceso de prueba recursiva que se discutirá en más detalle más adelante en este capítulo. En última instancia, la última prueba de la serie se envía al Verificador de Solidity en Ethereum. En otras palabras, se generan muchas pruebas hasta llegar a Ethereum y al Verificador de Solidity.
+
+El principal beneficio del sistema SHARP radica en su capacidad para reducir costos y mejorar la eficiencia dentro de la red de Starknet. Esto se logra al agrupar múltiples trabajos de Cairo, que son conjuntos individuales de cálculos. Esta agregación permite que el protocolo aproveche la amortización exponencial ofrecida por las pruebas STARK.
+
+La amortización exponencial significa que a medida que aumenta la carga computacional de las pruebas, el costo de verificar esas pruebas aumenta a una tasa logarítmica más lenta que el aumento de la computación. En otras palabras, la computación en sí crece más lentamente que el costo de verificación. Como resultado, el costo de cada transacción dentro del conjunto agregado se reduce significativamente, lo que hace que el proceso general sea más rentable y accesible para los usuarios.
+
+En el contexto de SHARP y Cairo, jobs se refiere a los programas Cairo individuales o tareas presentados por diferentes usuarios. Estos trabajos contienen lógica o cálculos específicos que deben ejecutarse en la red de Starknet.
+
+Además, SHARP permite que usuarios más pequeños con recursos limitados se beneficien al unirse a otros trabajos y compartir el costo de generar las pruebas. Este enfoque colaborativo es similar a usar el transporte público en lugar de un automóvil privado, donde el costo se distribuye entre todos los participantes, lo que lo hace más asequible para todos.
