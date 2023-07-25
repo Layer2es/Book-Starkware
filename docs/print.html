@@ -147,7 +147,7 @@
                     <main>
                         <h1 id="introducción"><a class="header" href="#introducción">Introducción</a></h1>
 <p>¡Hola comunidad! 👋</p>
-<p>Antes que nada nos gustaría expresar nuestro más sincero agradecimiento a todos aquellos que han contribuido y hecho posible la realización de esta exhaustiva investigación y documento sobre criptografía y como se adaptan en StarkWare. Especial reconocimiento a los expertos @X, @Y, @Z y @A, quienes han brindado sus valiosas correcciones y orientación en numerosos aspectos del trabajo. Su experiencia y conocimientos han sido fundamentales para alcanzar los resultados y conclusiones presentados en este informe.</p>
+<p>Antes que nada nos gustaría expresar nuestro más sincero agradecimiento a todos aquellos que han contribuido y hecho posible la realización de esta exhaustiva investigación y documento sobre criptografía y como se adaptan en StarkWare. Especial reconocimiento a los expertos que han colaborado en su creación y a <a href="https://twitter.com/0xhasher_">Carlos</a> que ha brindado sus valiosas correcciones y orientación en numerosos aspectos del trabajo. Sus experiencias y conocimientos han sido fundamentales para alcanzar los resultados y conclusiones presentados en este informe.</p>
 <p>En esta ocasión, estamos emocionados de presentar una serie de artículos profundos sobre el desarrollo detrás de Starkware. Recomendamos a los lectores que previamente hayan leído otros documentos y tengan conocimientos técnicos para una mejor comprensión, para este documento en concreto recomendamos:</p>
 <p><a href="https://starkware.co/resource/stark-endgame/">Stark END-Game</a> | <a href="https://starkware.co/resource/stark-endgame/">Recursive Stark</a> |  <a href="https://starkware.co/resource/account-abstraction-improving-security-and-user-experience-for-mainstream-crypto-adoption/">Account Abstraction</a> | <a href="https://starkware.co/stark-math-a-very-short-primer/">Intro Maths Starks</a></p>
 <p>El panorama actual es complejo, pero nos enorgullece contar con las mentes más brillantes trabajando en el ecosistema, una STARK que los une a todos.</p>
@@ -663,7 +663,7 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <p>En resumen, la <code>función poseidon(a₁,a₂,...,aₙ)</code> toma el array de field elements y aplica la permutación Hades en capas. Cada iteración de la permutación combina los elementos del array en función de los valores de  <code>s₁</code>, <code>s₂</code> y <code>s₃</code>, generando así una salida única. La primera coordenada de la salida final se considera el resultado de la función de hash Poseidon.</p>
 <p>Esta construcción en capas y la utilización de la permutación Hades permiten obtener un hash seguro y resistente a ciertos ataques criptográficos.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="s-t-arks"><a class="header" href="#s-t-arks">S-T-ARKs</a></h1>
-<p>Ahora, adentrémonos en una de las partes más fascinantes del ecosistema, los <strong>STARKs</strong> <a href="https://starkware.co/stark/">(Scalable Transparent Argument of Knowledge)</a> se basan en los principios de la criptografía simétrica combinados con matemáticas modernas, la existencia de funciones hash criptográficas seguras y resistentes a las colisiones. Muchas de estas primitivas existen hoy en día como instrucciones de hardware, y la criptografía magra conduce a dos beneficios más:</p>
+<p>Ahora, adentrémonos en una de las partes más fascinantes del ecosistema, los <strong>STARKs</strong> <a href="https://starkware.co/stark/">(Scalable Transparent Argument of Knowledge)</a> que se basan en matemáticas modernas, la existencia de funciones hash criptográficas seguras y resistentes a las colisiones. Los STARKs presentan variados beneficios, entre los cuales tenemos:</p>
 <ol>
 <li>
 <p><strong>Seguridad poscuántica:</strong> los <strong>STARK</strong> son plausiblemente seguros frente a ordenadores cuánticos eficientes.</p>
@@ -674,7 +674,7 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <p>A medida que StarkWare continúe optimizando <strong>STARKs</strong> estos ratios probablemente mejorarán. Sin embargo, la longitud de una prueba <strong>STARK es ~100x mayor</strong> que la correspondiente <strong>SNARK</strong> y <strong>~20x mayor que BulletProofs</strong>.</p>
 </li>
 </ol>
-<p>Puede encontrar una imagen animada en una comparativa con los datos expuestos sobre el Proving Time y Verification Time, Tamaño de la Proof, Configuración inicial y PQS entre STARKs y SNARKs, veremos como cada una cumple con propiedades que puede ser recomendada para darle mejor uso.</p>
+<p>Puede encontrar una imagen animada de una comparativa con los datos expuestos sobre el proving time y verification time, tamaño de la prueba, configuración inicial y PQS entre STARKs y SNARKs, veremos cómo cada una cumple con distintas propiedades que les permite ser recomendadas para variados usos.</p>
 <p><img src="./assets//Stark_Prover.gif" alt="graph" /></p>
 <div align="center">
 <em></em>
@@ -683,10 +683,10 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <blockquote>
 <p><strong>Pero, ¿cómo podemos garantizar esta integridad en un entorno digital donde no siempre podemos confiar en todas las partes involucradas?</strong></p>
 </blockquote>
-<p>Aquí es donde entra en juego la tecnología STARK, que se basa en estas Validity Proofy para garantizar que la computación se realice correctamente, <strong>incluso si nadie está observando <code>“INTEGRO”</code></strong>. STARKs utiliza matemáticas para lograr este objetivo y está diseñado para monitorear y garantizar la integridad de un gran cálculo realizado por un grupo de supercomputadoras poco confiables.</p>
+<p>Aquí es donde entra en juego la tecnología STARK, que se basa en estas Validity Proof para garantizar que la computación se realice correctamente, <strong>incluso si nadie está observando <code>“INTEGRO”</code></strong>. STARKs utiliza matemáticas para lograr este objetivo y está diseñado para monitorear y garantizar la integridad de un gran cálculo realizado por un grupo de supercomputadoras poco confiables.</p>
 <p>Las Validity Proofs son una herramienta crucial para garantizar la integridad y validez de los cambios realizados fuera de la cadena principal. Los sistemas de ZKP, en los que el prover posee información secreta que no es conocida por el verifier, son clave para las Validity Proofs. En el caso de Starknet, se trata de un Validity Rollup que utiliza STARKs.</p>
 <p>Es importante tener en cuenta que ZK en Starknet, es una propiedad adicional que se utiliza para afirmar al probador que no tiene que revelar ninguna información incluida en el cálculo. Sin embargo, en el caso de Starknet como una capa 2 pública, los datos de transacción son públicos, lo que significa que no se ofrece privacidad como tal en transacciones, ocultar saldos u otras operaciones opacas, aunque los zk-STRAKs están listas para eso.</p>
-<p>En Starknet, el enfoque principal es el Validity Rollup, que se utiliza para probar la validez del cálculo computacional, a diferencia de otros protocolos que utilizan mal nombrado ZK Rollup. La propiedad ZK se utiliza en Starknet para escalar el rendimiento, no para garantizar privacidad, por lo tanto, los STARKs en Starknet son Validity Proofs en lugar de ZK Proofs.</p>
+<p>En Starknet, el enfoque principal es el Validity Rollup, que se utiliza para probar la validez del cálculo computacional, a diferencia de otros protocolos que utilizan el término <code>ZK Rollup</code>. Los STARKs en Starknet son Validity Proofs en lugar de ZK Proofs.</p>
 <p>Los STARKs utilizan funciones de criptografía simétrica y hash criptográficos como componentes fundamentales en su construcción, las vulnerabilidades cuánticas conocidas en criptografía, como el algoritmo de Shor que puede factorizar números enteros grandes y romper sistemas de criptografía asimétrica basados en factorización, no afectan a las STARKs.</p>
 <p><img src="./assets//Stark_1.gif" alt="graph" /></p>
 <div align="center">
@@ -698,7 +698,7 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <div style="break-before: page; page-break-before: always;"></div><h2 id="propiedas-de-las-starks"><a class="header" href="#propiedas-de-las-starks">Propiedas de las STARKs</a></h2>
 <p>Hemos visto cómo diferenciar los tipos de pruebas según su criptografía, así como la comparativa entre varias de ellas. Ahora veamos cuáles son las dos propiedades esenciales en las pruebas y cómo se pueden lograr, antes de pasar a la definición de STARK</p>
 <ol>
-<li><strong>Succintness (Sucintez):</strong> exigimos que nuestras pruebas y, en particular, el tiempo de verificación sean sucintos, es decir, que sean órdenes de magnitud más pequeños que el tiempo necesario para calcular nuestro programa. De lo contrario, no habría ninguna ventaja para el verificador en utilizar la prueba en lugar del cálculo original.</li>
+<li><strong>Succintness:</strong> exigimos que nuestras pruebas y, en particular, el tiempo de verificación sean sucintos, es decir, que sean órdenes de magnitud más pequeños que el tiempo necesario para calcular nuestro programa. De lo contrario, no habría ninguna ventaja para el verificador en utilizar la prueba en lugar del cálculo original.</li>
 <li><strong>Heurística Fiat-Shamir:</strong> este es un proceso mediante el cual podemos convertir una prueba interactiva en una no interactiva. Funciona proporcionando compromisos a los mensajes que formarían la interacción y las funciones hash se utilizan como fuente de aleatoriedad.</li>
 </ol>
 <p>Uno de los protocolos que se utiliza en sistemas criptográficos, como los STARKs, para abordar el desafío de verificar eficientemente la corrección de grandes cálculos polinomiales es FRI (Fast Reed-Solomon Interactive Oracle Proofs of Proximity).</p>
@@ -707,7 +707,7 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <p>El conjunto de operaciones matemáticas, bases criptográficas, FRI y otras propiedades, como Fiat-Shamir, permite que las STARKs logren seguridad cuántica y escalabilidad, al tiempo que proporcionan una verificación transparente y eficiente de cálculos complejos.</p>
 </blockquote>
 <p>Podemos decir entonces que los STARKs demuestran la correcta operación de una máquina virtual al demostrar que la traza de ejecución asociada es válida con respecto al AIR dado. En términos generales, las trazas de ejecución se organizan como tablas de números, y el protocolo STARK demuestra que estos números resuelven conjuntamente un sistema de polinomios.</p>
-<p>Así vemos cómo algunas de estas propiedades, como la succintez, pueden venir de forma natural en las STARKs, y cómo el principio de Fiat-Shamir permite realizar pruebas interactivas. Además, contar con FRI como corrección de errores amplía las capacidades y visión de las STARKs, así que ahora vayamos a su definición</p>
+<p>Así vemos cómo algunas de estas propiedades, como <code>Succintness</code>, pueden venir de forma natural en las STARKs, y cómo el principio de Fiat-Shamir permite realizar pruebas interactivas. Además, contar con FRI como corrección de errores amplía las capacidades y visión de las STARKs, así que ahora vayamos a su definición</p>
 <h2 id="s--scalable"><a class="header" href="#s--scalable">S = Scalable</a></h2>
 <p>Una de las principales ventajas de STARKs es que al trasladar un cálculo fuera de la cadena, se reducen de manera exponencial los costos de verificación en la cadena de bloques. El proceso de creación de una prueba fuera de la cadena tiene un costo similar al de solicitar a un único nodo de la cadena de bloques que realice el cálculo.</p>
 <p>La producción de pruebas no resulta considerablemente más costosa que la ejecución del cálculo original, y la validación de las pruebas es <strong>exponencialmente más rápida</strong> que la ejecución del cálculo original. Además, las pruebas son <strong>considerablemente más cortas</strong> en tamaño que el cálculo original.</p>
@@ -716,16 +716,16 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <div align="center">
 <em></em>
 </div>
-<p>Además, se puede aprovechar la capacidad de paralelización de pruebas por el prover y recursividad de los STRAKs eficentes para mejorar significativamente la escalabilidad.</p>
+<p>Además, se puede aprovechar la capacidad de paralelización de pruebas por el prover y recursividad de los STARKs eficentes para mejorar significativamente la escalabilidad.</p>
 <p><img src="./assets//Stark_3.gif" alt="graph" /></p>
 <div align="center">
 <em></em>
 </div>
 <h2 id="t--transparent"><a class="header" href="#t--transparent">T = Transparent</a></h2>
 <p>La seguridad de las STARKs no depende de ceremonias de configuración elaboradas que puedan generar residuos tóxicos criptográficos, como ocurre en otras tecnologías de pruebas.</p>
-<p>El uso de STARKs para iniciar la prueba basándose en criptografía simétrica, pseudoaleatoriedad y las matemáticas proporciona un inicio de ceremonia transparente y elimina la necesidad de una configuración de confianza inicial (trusted setup), lo que asegura la ausencia de residuos tóxicos y mejora la seguridad y confiabilidad general del sistema criptográfico.</p>
+<p>El uso de STARKs que tienen una base matemática compleja y que utilizan pseudoaleatoriedad proporciona un inicio de ceremonia transparente y elimina la necesidad de una configuración de confianza inicial (trusted setup), lo que mejora la seguridad y confiabilidad general del sistema criptográfico.</p>
 <p>Una característica importante de las STARKs es su construcción basada en el trabajo de <a href="https://es.wikipedia.org/wiki/Silvio_Micali">Micali</a>. En esta construcción, la única criptografía necesaria para producir o validar una prueba corta <code>𝛑</code> es una <strong>función hash criptográfica</strong> <code>H</code>, como <code>SHA-256</code> o <code>Keccak</code>. La elección de <code>H</code> se convierte en el único <strong>&quot;parámetro global&quot;</strong> que todos los usuarios del sistema de prueba deben conocer, y <strong>esta elección puede hacerse de manera pública, garantizando la transparencia de las pruebas criptográficas obtenidas a través de las STARKs.</strong></p>
-<p>Sin embargo siempre comparamos STARKs con SNARKs o pruebas derivadas de criptografía asimétrica como las <a href="https://eprint.iacr.org/2013/279.pdf">Pinocchio</a> de ECC, pero cada una tiene sus varientes y esquemas diversos,  aunque para una explicación más clara cogeremos el ejemplo de <a href="https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6">VB en un artículo sobre zk-SNARKs</a>.</p>
+<p>Sin embargo siempre comparamos STARKs con SNARKs o pruebas derivadas de criptografía asimétrica como las <a href="https://eprint.iacr.org/2013/279.pdf">Pinocchio</a> de ECC, pero cada una tiene sus varientes y esquemas diversos, aunque para una explicación más clara cogeremos el ejemplo de <a href="https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6">VB en un artículo sobre zk-SNARKs</a>.</p>
 <p><img src="./assets//Stark_4.png" alt="graph" /></p>
 <div align="center">
 <em></em>
@@ -751,9 +751,9 @@ La combinación de criptografía de clave pública para el intercambio de claves
 </div>
 <p>En la imagen animada podemos ver un ejemplo de <strong>PCP</strong> con un conjunto de resticciones un sudoku y ahora veremos como los STARKs eficiente pueden mejorar la eficiencia de las <strong>PCP</strong> y <strong>MPCP</strong> con <strong>IOPs</strong>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="iops---interactive-oracle-proof"><a class="header" href="#iops---interactive-oracle-proof">IOPs - Interactive Oracle Proof</a></h1>
-<p>Las Interactive Orcale Proof <a href="https://eprint.iacr.org/2016/116"><strong>(IOP)</strong></a> son un nuevo tipo de sistema de prueba que combina las propiedades clave de <strong>pruebas interactivas</strong> y <strong>PCP</strong>, las <strong>IOP</strong> permiten que un verifier esté convencido de la exactitud de una declaración al interactuar con un prover no confiable mientras lee solo algunos bits de los mensajes enviados por el prover. Las <strong>IOP</strong> se han vuelto muy prominentes en el diseño de sistemas de prueba eficientes en los últimos años.</p>
+<p>Las Interactive Oracle Proof <a href="https://eprint.iacr.org/2016/116"><strong>(IOP)</strong></a> son un nuevo tipo de sistema de prueba que combina las propiedades clave de <strong>pruebas interactivas</strong> y <strong>PCP</strong>, las <strong>IOP</strong> permiten que un verifier esté convencido de la exactitud de una declaración al interactuar con un prover no confiable mientras lee solo algunos bits de los mensajes enviados por el prover. Las <strong>IOP</strong> se han vuelto muy prominentes en el diseño de sistemas de prueba eficientes en los últimos años.</p>
 <blockquote>
-<p><strong>Las construcciones STARK eficientes se obtienen combinando IOP eficientes y funciones hash criptográficas. El IOP le confiere al STARK su escalabilidad, mientras que la función hash le confiere al STARK su transparencia.</strong></p>
+<p><strong>Las construcciones STARK eficientes se obtienen combinando IOP eficientes y funciones hash criptográficas. La IOP le confiere al STARK su escalabilidad, mientras que la función hash le confiere al STARK su transparencia.</strong></p>
 </blockquote>
 <p>Las STARKs eficientes se basan en IOP, de manera informal, un prover y un verifier participan en un protocolo interactivo en el que, en cada ronda, el verifier envía algo de aleatoriedad <code>𝛔ᵢ</code> al prover, y el prover responde con una proof larga <code>𝚿ᵢ</code>. Al final de la interacción, el verificador realiza una verificación local aleatoria de todas las proof largas <code>(𝚿₁,𝚿₂,…)</code> enviadas por el prover a lo largo de la interacción.</p>
 <p>Ahora, antes de sumergirnos en el mundo de los pasos de creación de un STARKs y su eficiencia, es importante comprender qué es un polinomio, ya que desempeñan un papel crucial en la construcción y verificación de STARKs. Son utilizados para representar y manipular datos de manera eficiente, lo que permite lograr un alto nivel de compresión y optimización en el proceso de verificación.</p>
@@ -763,7 +763,7 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <p>Los polinomios se pueden sumar, restar, multiplicar y dividir, y se emplean en ecuaciones algebraicas, cálculo, geometría y muchas otras ramas de las ciencias exactas.</p>
 <p><strong>¿Por qué no evalúa el verifier los propios polinomios?</strong></p>
 <ul>
-<li>Prque, en realidad, el prover no envía todos los polinomios al verificador, si lo hiciera perderíamos sucintez, contienen más información que nuestra declaración original, por lo que el prover sólo proporciona un compromiso con los polinomios.</li>
+<li>Porque, en realidad, el prover no envía todos los polinomios al verificador, si lo hiciera perderíamos la succintness, contienen más información que nuestra declaración original, por lo que el prover sólo proporciona un compromiso con los polinomios.</li>
 </ul>
 <p><strong>¿Qué propiedades de los polinomios son importantes en este caso?</strong></p>
 <ul>
@@ -797,7 +797,7 @@ La combinación de criptografía de clave pública para el intercambio de claves
 </ul>
 <p>Si <code>P₁(x)</code> no cumpliera con la restricción (por ejemplo, si para un valor de <code>x, P₁(x) = 93</code>), entonces no podríamos encontrar esos polinomios, la igualdad no se cumpliría y habría un residuo en la ecuación anterior.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="creando-un-stark"><a class="header" href="#creando-un-stark">Creando un STARK</a></h1>
-<p>En esta parte final del documento y después de haber explicado algunas propiedades  importantes de los polinomios y que resuelven, exploraremos la creación de una STARK desde los fundamentos matemáticos más profundos. Para obtener una comprensión completa de los procesos involucrados y cómo se puede combinar un PCP con criptografía ligera para obtener un STARK, te recomendamos revisar la serie lanzada por Starkware,que proporciona una profundización inicial más detallada.</p>
+<p>En esta parte final del documento y después de haber explicado algunas propiedades  importantes de los polinomios y qué resuelven, exploraremos la creación de una STARK desde los fundamentos matemáticos más profundos. Para obtener una comprensión completa de los procesos involucrados y cómo se puede combinar un PCP con criptografía ligera para obtener un STARK, te recomendamos revisar la serie lanzada por Starkware,que proporciona una profundización inicial más detallada.</p>
 <p>Además, encontrarás a continuación los enlaces a cinco artículos fundamentales  traducidos al español que complementarán tu aprendizaje:</p>
 <ol>
 <li><a href="https://github.com/Starknet-Es/Maths-StarknetEs/blob/main/Gu%C3%ADas%20Oficiales/Comienza%20el%20viaje.md">Comienza el Viaje</a></li>
@@ -806,7 +806,7 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <li><a href="https://github.com/Starknet-Es/Maths-StarknetEs/blob/main/Gu%C3%ADas%20Oficiales/Prueba%20de%20bajo%20grado.md">Pruebas de Bajo Grado</a></li>
 <li><a href="https://github.com/Starknet-Es/Maths-StarknetEs/blob/main/Gu%C3%ADas%20Oficiales/Un%20marco%20para%20STARKs%20eficientes.md">Un Frameword para STARKs Eficientes</a></li>
 </ol>
-<p>Estos recursos adicionales te brindarán una visión más completa y práctica del proceso de creación de una STARK. También te recomendamos revisar los repositorios relacionados y los videos de creación de una STARK en Pioneros Clases 3, un Basecamp descentralizado en Español creado por Starknet, o el den inglés impartido por Eli Ben Saason</p>
+<p>Estos recursos adicionales te brindarán una visión más completa y práctica del proceso de creación de una STARK. También te recomendamos revisar los repositorios relacionados y los videos de creación de una STARK en Pioneros Clases 3, un Basecamp descentralizado en Español creado por Starknet, o el de inglés impartido por Eli Ben-Sasson</p>
 <p>Nos interesa la Integridad Computacional (CI), por ejemplo, saber que el programa de Cairo que escribiste se calculó correctamente.</p>
 <ul>
 <li>Tenemos que pasar por una serie de transformaciones desde el trazado de nuestro programa, hasta la prueba.</li>
@@ -876,7 +876,7 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <li><code>∀ x ∈ {1,g²,g³...g⁵⁰⁹}: f(g²x) ₋ f(gx) ₋ f(x) = 0</code></li>
 </ul>
 <p>Esto restringe los valores entre las filas subsiguientes. También significa que los valores g son raíces de este polinomio.</p>
-<p>Por lo tanto, podemos utilizar el enfoque que vimos anteriormente para proporcionar el polinomio de fuga utilizando el término <code>(x - gⁱ)</code> y a partir de él creamos el polinomio de composición.</p>
+<p>Por lo tanto, podemos utilizar el enfoque que vimos anteriormente para proporcionar el polinomio de fuga utilizando el término <code>(x - gⁱ)</code> y a partir de él creamos la Composición Polinomial.</p>
 <p>El hecho básico sobre polinomios y sus raíces es que si <code>p(x)</code> es un polinomio, entonces <code>p(a)=0</code> para algún valor específico a, si y sólo si existe un polinomio <code>q(x)</code> tal que <code>(x-a)q(x)=p(x)</code>, y <code>deg(p)=deg(q)+1.</code></p>
 <p>Esta expresión coincide con el polinomio de grado 2 como máximo si nuestra traza de ejecución ha sido correcta, es decir, ha obedecido a la restricción de paso que hemos definido.</p>
 <p>Si la traza difiere de eso, entonces es poco probable que esta expresión produzca un polinomio de bajo grado.</p>
@@ -934,7 +934,7 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <p>El prover conoce explícitamente este codeword, mientras que el verificador sólo conoce su raíz Merkle y las hojas de su elección, suponiendo la validación satisfactoria de las rutas de autenticación que establecen la pertenencia de las hojas al Merkle Tree.</p>
 <p>Una de las grandes ideas para los sistemas de pruebas de los últimos años ha sido la técnica de dividir y doblar. La idea es reducir una afirmación a dos afirmaciones de la mitad de tamaño. A continuación, ambas afirmaciones se fusionan en una sola utilizando pesos aleatorios proporcionados por el verificador.</p>
 <p>Después de muchos pasos, la afirmación se ha reducido a una de tamaño trivial que es verdadera si y sólo si (modulo alguna degradación de seguridad insignificante) la afirmación original era verdadera.</p>
-<p>El verfier inspecciona los Merkle Tree (en concreto: pide al prover que proporcione las hojas indicadas con sus rutas de autenticación) de rondas consecutivas para comprobar una relación lineal simple.</p>
+<p>El Verifier inspecciona los Merkle Tree (en concreto: pide al prover que proporcione las hojas indicadas con sus rutas de autenticación) de rondas consecutivas para comprobar una relación lineal simple.</p>
 <p>Para los provers honestos, el grado de los polinomios representados también se reduce a la mitad en cada ronda y, por tanto, es mucho menor que la longitud de la codeword. Sin embargo, para los provers maliciosos, este grado es uno menos que la longitud de la codeword. En el último paso, el prover envía una codeword no trivial correspondiente a un polinomio constante.</p>
 <p>Después de explorar los diferentes pasos en la creación detrás de un STARKs y la importancia de las pruebas de integridad, es evidente que estas pruebas son fundamentales para garantizar la seguridad y confiabilidad de los sistemas del Futuro.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="leve-introducción-cairo"><a class="header" href="#leve-introducción-cairo">Leve introducción Cairo</a></h1>
@@ -955,10 +955,25 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <p>Vimos como en el proceso de construcción de pruebas STARK, el prover utiliza esta traza para crear Representaciones Algebraicas Intermedias (AIRs), que luego se combinan y se convierten en pruebas STARK.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="conclusión"><a class="header" href="#conclusión">Conclusión</a></h1>
 <p>Con esto, concluimos nuestro profundo viaje por el mundo de la criptografía, explorando la generación de claves privadas y públicas, así como sus diversas implementaciones. Hemos aprendido cómo Starknet y los esquemas de firmas pueden prevenir ataques criptoanalíticos, y hemos visto cómo las STARKs han sido diseñadas desde su inicio para brindar seguridad matemática frente a ataques cuánticos, siguiendo sus principios fundamentales.</p>
-<p>Starknet está sentando las bases de la criptografía moderna y creando un ecosistema escalable, integro y seguro por una de las mayores descentralizada como Ethereum, escalemos juntos.</p>
+<p>Starknet está sentando las bases de la criptografía moderna y creando un ecosistema escalable, íntegro y seguro por una de las mayores descentralizada como Ethereum, escalemos juntos.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="introducción-parte-2"><a class="header" href="#introducción-parte-2">Introducción Parte 2</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="arquitectura-starknet-y-cairo"><a class="header" href="#arquitectura-starknet-y-cairo">Arquitectura Starknet y Cairo</a></h1>
-<p>En este apartado exploraremos la arquitectura de Starknet y sus componentes fundamentales para comprender como es la construcción de aplicaciones web3 escalables. Starknet ha experimentado un crecimiento significativo como el primer rollup basado en ZK. Te proporcionaremos un conocimiento profundo de los elementos clave de Starknet, permitiéndote desarrollar e implementar dApps de manera eficiente.</p>
+<p>Starknet es una solución de de capa 2 para ETH, que aprovecha la tecnología de zk-STARKs para lograr escalabilidad, privacidad y seguridad. Como solución de escalabilidad de Capa 2 para Ethereum, Starknet ofrece transacciones rápidas, seguras y de bajo costo. Funciona como un Validity Rollup (comúnmente conocido como Rollup de conocimiento cero) que utiliza sistemas criptográficos llamados STARKs para reducir los costos de computación.</p>
+<h2 id="características-generales-de-starknet"><a class="header" href="#características-generales-de-starknet">Características Generales de Starknet</a></h2>
+<p>Veamos algunas caráteristicas báscicas antes de pasar cada componente de su arquitectura.</p>
+<ul>
+<li><strong>Bajos costos de transacción:</strong> Los costos de transacción en Starknet son significativamente inferiores a los de Ethereum. Con próximas mejoras como Volition (disponibilidad de datos fuera de la cadena) y la implementación de EIP 4844 en L1, se espera que estos costos disminuyan aún más.</li>
+<li><strong>Plataforma amigable para desarrolladores:</strong> Starknet proporciona un entorno que empodera a los desarrolladores para construir aplicaciones descentralizadas utilizando STARKs y el lenguaje de programación Cairo.</li>
+<li><strong>Alto rendimiento y baja latencia:</strong> Las futuras versiones de Starknet tienen como objetivo aumentar el rendimiento de la red, reducir la latencia de las transacciones y disminuir los costos de las mismas.</li>
+<li><strong>La Filosofía de Starknet:</strong> Un Enfoque Amigable para Desarrolladores
+La filosofía de Starknet se centra en ser amigable para los desarrolladores. La red está diseñada con un claro enfoque en proporcionar a los desarrolladores una plataforma robusta, segura y poderosa para construir el futuro de la infraestructura y las aplicaciones descentralizadas. Los principios fundamentales de este enfoque incluyen:</li>
+<li><strong>Rendimiento:</strong> Starknet ofrece mayor rendimiento, menor latencia y costos de transacción reducidos, facilitando así la creación de aplicaciones intensivas en cómputo.</li>
+<li><strong>Cairo:</strong> El lenguaje de programación central de Starknet, Cairo, se actualiza constantemente y se mejora para brindar a los desarrolladores las mejores herramientas para aprovechar las pruebas de validez y la tecnología zk-STARKs.</li>
+<li><strong>Enfoque en la comunidad:</strong> Starknet mantiene canales activos de comunicación y retroalimentación con la comunidad de desarrolladores a través de plataformas como Telegram y Discord.</li>
+<li><strong>Creatividad:</strong> Starknet tiene como objetivo eliminar limitaciones y empoderar a los desarrolladores para construir el futuro de las aplicaciones descentralizadas. Permite crear cosas que nunca antes se pudieron construir debido a las limitaciones de la tecnología subyacente.</li>
+<li><strong>Herramientas:</strong> Starknet se compromete a proporcionar una amplia gama de herramientas de desarrollo, incluyendo SDKs para diversos lenguajes, un marco de pruebas e implementación inspirado en Foundry (Protostar) y administradores de paquetes (Scarb).</li>
+</ul>
+<p>En este apartado exploraremos la arquitectura de Starknet y sus componentes fundamentales para comprender como es la construcción de aplicaciones web3 escalables. Te proporcionaremos un conocimiento profundo de los elementos clave de Starknet, permitiéndote desarrollar e implementar dApps de manera eficiente.</p>
 <p>A lo largo de este documento, abordaremos los siguientes temas: (MAL)</p>
 <ul>
 <li><strong>Nodos de L2:</strong> Una descripción general de los diferentes nodos de Starknet (Secuenciador, Verificador, Nodos completos e Indexador) y sus roles dentro de la red.</li>

@@ -7,7 +7,7 @@ Los polinomios se pueden sumar, restar, multiplicar y dividir, y se emplean en e
 
 **¿Por qué no evalúa el verifier los propios polinomios?**
 
-* Prque, en realidad, el prover no envía todos los polinomios al verificador, si lo hiciera perderíamos sucintez, contienen más información que nuestra declaración original, por lo que el prover sólo proporciona un compromiso con los polinomios.
+* Porque, en realidad, el prover no envía todos los polinomios al verificador, si lo hiciera perderíamos la succintness, contienen más información que nuestra declaración original, por lo que el prover sólo proporciona un compromiso con los polinomios.
 
 **¿Qué propiedades de los polinomios son importantes en este caso?**
 

@@ -1,7 +1,7 @@
 # IOPs - Interactive Oracle Proof
-Las Interactive Orcale Proof [**(IOP)**](https://eprint.iacr.org/2016/116) son un nuevo tipo de sistema de prueba que combina las propiedades clave de **pruebas interactivas** y **PCP**, las **IOP** permiten que un verifier esté convencido de la exactitud de una declaración al interactuar con un prover no confiable mientras lee solo algunos bits de los mensajes enviados por el prover. Las **IOP** se han vuelto muy prominentes en el diseño de sistemas de prueba eficientes en los últimos años.
+Las Interactive Oracle Proof [**(IOP)**](https://eprint.iacr.org/2016/116) son un nuevo tipo de sistema de prueba que combina las propiedades clave de **pruebas interactivas** y **PCP**, las **IOP** permiten que un verifier esté convencido de la exactitud de una declaración al interactuar con un prover no confiable mientras lee solo algunos bits de los mensajes enviados por el prover. Las **IOP** se han vuelto muy prominentes en el diseño de sistemas de prueba eficientes en los últimos años.
 
-> **Las construcciones STARK eficientes se obtienen combinando IOP eficientes y funciones hash criptográficas. El IOP le confiere al STARK su escalabilidad, mientras que la función hash le confiere al STARK su transparencia.**
+> **Las construcciones STARK eficientes se obtienen combinando IOP eficientes y funciones hash criptográficas. La IOP le confiere al STARK su escalabilidad, mientras que la función hash le confiere al STARK su transparencia.**
 
 Las STARKs eficientes se basan en IOP, de manera informal, un prover y un verifier participan en un protocolo interactivo en el que, en cada ronda, el verifier envía algo de aleatoriedad `𝛔ᵢ` al prover, y el prover responde con una proof larga `𝚿ᵢ`. Al final de la interacción, el verificador realiza una verificación local aleatoria de todas las proof largas `(𝚿₁,𝚿₂,…)` enviadas por el prover a lo largo de la interacción.
 

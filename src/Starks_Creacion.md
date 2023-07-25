@@ -1,5 +1,5 @@
 # Creando un STARK
-En esta parte final del documento y después de haber explicado algunas propiedades  importantes de los polinomios y que resuelven, exploraremos la creación de una STARK desde los fundamentos matemáticos más profundos. Para obtener una comprensión completa de los procesos involucrados y cómo se puede combinar un PCP con criptografía ligera para obtener un STARK, te recomendamos revisar la serie lanzada por Starkware,que proporciona una profundización inicial más detallada.
+En esta parte final del documento y después de haber explicado algunas propiedades  importantes de los polinomios y qué resuelven, exploraremos la creación de una STARK desde los fundamentos matemáticos más profundos. Para obtener una comprensión completa de los procesos involucrados y cómo se puede combinar un PCP con criptografía ligera para obtener un STARK, te recomendamos revisar la serie lanzada por Starkware,que proporciona una profundización inicial más detallada.
 
 Además, encontrarás a continuación los enlaces a cinco artículos fundamentales  traducidos al español que complementarán tu aprendizaje:
 
@@ -9,7 +9,7 @@ Además, encontrarás a continuación los enlaces a cinco artículos fundamental
 4. [Pruebas de Bajo Grado](https://github.com/Starknet-Es/Maths-StarknetEs/blob/main/Gu%C3%ADas%20Oficiales/Prueba%20de%20bajo%20grado.md)
 5. [Un Frameword para STARKs Eficientes](https://github.com/Starknet-Es/Maths-StarknetEs/blob/main/Gu%C3%ADas%20Oficiales/Un%20marco%20para%20STARKs%20eficientes.md)
 
-Estos recursos adicionales te brindarán una visión más completa y práctica del proceso de creación de una STARK. También te recomendamos revisar los repositorios relacionados y los videos de creación de una STARK en Pioneros Clases 3, un Basecamp descentralizado en Español creado por Starknet, o el den inglés impartido por Eli Ben Saason
+Estos recursos adicionales te brindarán una visión más completa y práctica del proceso de creación de una STARK. También te recomendamos revisar los repositorios relacionados y los videos de creación de una STARK en Pioneros Clases 3, un Basecamp descentralizado en Español creado por Starknet, o el de inglés impartido por Eli Ben-Sasson
 
 Nos interesa la Integridad Computacional (CI), por ejemplo, saber que el programa de Cairo que escribiste se calculó correctamente.
 

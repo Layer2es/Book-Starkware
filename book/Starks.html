@@ -145,7 +145,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="s-t-arks"><a class="header" href="#s-t-arks">S-T-ARKs</a></h1>
-<p>Ahora, adentrémonos en una de las partes más fascinantes del ecosistema, los <strong>STARKs</strong> <a href="https://starkware.co/stark/">(Scalable Transparent Argument of Knowledge)</a> se basan en los principios de la criptografía simétrica combinados con matemáticas modernas, la existencia de funciones hash criptográficas seguras y resistentes a las colisiones. Muchas de estas primitivas existen hoy en día como instrucciones de hardware, y la criptografía magra conduce a dos beneficios más:</p>
+<p>Ahora, adentrémonos en una de las partes más fascinantes del ecosistema, los <strong>STARKs</strong> <a href="https://starkware.co/stark/">(Scalable Transparent Argument of Knowledge)</a> que se basan en matemáticas modernas, la existencia de funciones hash criptográficas seguras y resistentes a las colisiones. Los STARKs presentan variados beneficios, entre los cuales tenemos:</p>
 <ol>
 <li>
 <p><strong>Seguridad poscuántica:</strong> los <strong>STARK</strong> son plausiblemente seguros frente a ordenadores cuánticos eficientes.</p>
@@ -156,7 +156,7 @@
 <p>A medida que StarkWare continúe optimizando <strong>STARKs</strong> estos ratios probablemente mejorarán. Sin embargo, la longitud de una prueba <strong>STARK es ~100x mayor</strong> que la correspondiente <strong>SNARK</strong> y <strong>~20x mayor que BulletProofs</strong>.</p>
 </li>
 </ol>
-<p>Puede encontrar una imagen animada en una comparativa con los datos expuestos sobre el Proving Time y Verification Time, Tamaño de la Proof, Configuración inicial y PQS entre STARKs y SNARKs, veremos como cada una cumple con propiedades que puede ser recomendada para darle mejor uso.</p>
+<p>Puede encontrar una imagen animada de una comparativa con los datos expuestos sobre el proving time y verification time, tamaño de la prueba, configuración inicial y PQS entre STARKs y SNARKs, veremos cómo cada una cumple con distintas propiedades que les permite ser recomendadas para variados usos.</p>
 <p><img src="./assets//Stark_Prover.gif" alt="graph" /></p>
 <div align="center">
 <em></em>
@@ -165,10 +165,10 @@
 <blockquote>
 <p><strong>Pero, ¿cómo podemos garantizar esta integridad en un entorno digital donde no siempre podemos confiar en todas las partes involucradas?</strong></p>
 </blockquote>
-<p>Aquí es donde entra en juego la tecnología STARK, que se basa en estas Validity Proofy para garantizar que la computación se realice correctamente, <strong>incluso si nadie está observando <code>“INTEGRO”</code></strong>. STARKs utiliza matemáticas para lograr este objetivo y está diseñado para monitorear y garantizar la integridad de un gran cálculo realizado por un grupo de supercomputadoras poco confiables.</p>
+<p>Aquí es donde entra en juego la tecnología STARK, que se basa en estas Validity Proof para garantizar que la computación se realice correctamente, <strong>incluso si nadie está observando <code>“INTEGRO”</code></strong>. STARKs utiliza matemáticas para lograr este objetivo y está diseñado para monitorear y garantizar la integridad de un gran cálculo realizado por un grupo de supercomputadoras poco confiables.</p>
 <p>Las Validity Proofs son una herramienta crucial para garantizar la integridad y validez de los cambios realizados fuera de la cadena principal. Los sistemas de ZKP, en los que el prover posee información secreta que no es conocida por el verifier, son clave para las Validity Proofs. En el caso de Starknet, se trata de un Validity Rollup que utiliza STARKs.</p>
 <p>Es importante tener en cuenta que ZK en Starknet, es una propiedad adicional que se utiliza para afirmar al probador que no tiene que revelar ninguna información incluida en el cálculo. Sin embargo, en el caso de Starknet como una capa 2 pública, los datos de transacción son públicos, lo que significa que no se ofrece privacidad como tal en transacciones, ocultar saldos u otras operaciones opacas, aunque los zk-STRAKs están listas para eso.</p>
-<p>En Starknet, el enfoque principal es el Validity Rollup, que se utiliza para probar la validez del cálculo computacional, a diferencia de otros protocolos que utilizan mal nombrado ZK Rollup. La propiedad ZK se utiliza en Starknet para escalar el rendimiento, no para garantizar privacidad, por lo tanto, los STARKs en Starknet son Validity Proofs en lugar de ZK Proofs.</p>
+<p>En Starknet, el enfoque principal es el Validity Rollup, que se utiliza para probar la validez del cálculo computacional, a diferencia de otros protocolos que utilizan el término <code>ZK Rollup</code>. Los STARKs en Starknet son Validity Proofs en lugar de ZK Proofs.</p>
 <p>Los STARKs utilizan funciones de criptografía simétrica y hash criptográficos como componentes fundamentales en su construcción, las vulnerabilidades cuánticas conocidas en criptografía, como el algoritmo de Shor que puede factorizar números enteros grandes y romper sistemas de criptografía asimétrica basados en factorización, no afectan a las STARKs.</p>
 <p><img src="./assets//Stark_1.gif" alt="graph" /></p>
 <div align="center">
@@ -207,22 +207,6 @@
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

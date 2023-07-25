@@ -145,7 +145,22 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="arquitectura-starknet-y-cairo"><a class="header" href="#arquitectura-starknet-y-cairo">Arquitectura Starknet y Cairo</a></h1>
-<p>En este apartado exploraremos la arquitectura de Starknet y sus componentes fundamentales para comprender como es la construcción de aplicaciones web3 escalables. Starknet ha experimentado un crecimiento significativo como el primer rollup basado en ZK. Te proporcionaremos un conocimiento profundo de los elementos clave de Starknet, permitiéndote desarrollar e implementar dApps de manera eficiente.</p>
+<p>Starknet es una solución de de capa 2 para ETH, que aprovecha la tecnología de zk-STARKs para lograr escalabilidad, privacidad y seguridad. Como solución de escalabilidad de Capa 2 para Ethereum, Starknet ofrece transacciones rápidas, seguras y de bajo costo. Funciona como un Validity Rollup (comúnmente conocido como Rollup de conocimiento cero) que utiliza sistemas criptográficos llamados STARKs para reducir los costos de computación.</p>
+<h2 id="características-generales-de-starknet"><a class="header" href="#características-generales-de-starknet">Características Generales de Starknet</a></h2>
+<p>Veamos algunas caráteristicas báscicas antes de pasar cada componente de su arquitectura.</p>
+<ul>
+<li><strong>Bajos costos de transacción:</strong> Los costos de transacción en Starknet son significativamente inferiores a los de Ethereum. Con próximas mejoras como Volition (disponibilidad de datos fuera de la cadena) y la implementación de EIP 4844 en L1, se espera que estos costos disminuyan aún más.</li>
+<li><strong>Plataforma amigable para desarrolladores:</strong> Starknet proporciona un entorno que empodera a los desarrolladores para construir aplicaciones descentralizadas utilizando STARKs y el lenguaje de programación Cairo.</li>
+<li><strong>Alto rendimiento y baja latencia:</strong> Las futuras versiones de Starknet tienen como objetivo aumentar el rendimiento de la red, reducir la latencia de las transacciones y disminuir los costos de las mismas.</li>
+<li><strong>La Filosofía de Starknet:</strong> Un Enfoque Amigable para Desarrolladores
+La filosofía de Starknet se centra en ser amigable para los desarrolladores. La red está diseñada con un claro enfoque en proporcionar a los desarrolladores una plataforma robusta, segura y poderosa para construir el futuro de la infraestructura y las aplicaciones descentralizadas. Los principios fundamentales de este enfoque incluyen:</li>
+<li><strong>Rendimiento:</strong> Starknet ofrece mayor rendimiento, menor latencia y costos de transacción reducidos, facilitando así la creación de aplicaciones intensivas en cómputo.</li>
+<li><strong>Cairo:</strong> El lenguaje de programación central de Starknet, Cairo, se actualiza constantemente y se mejora para brindar a los desarrolladores las mejores herramientas para aprovechar las pruebas de validez y la tecnología zk-STARKs.</li>
+<li><strong>Enfoque en la comunidad:</strong> Starknet mantiene canales activos de comunicación y retroalimentación con la comunidad de desarrolladores a través de plataformas como Telegram y Discord.</li>
+<li><strong>Creatividad:</strong> Starknet tiene como objetivo eliminar limitaciones y empoderar a los desarrolladores para construir el futuro de las aplicaciones descentralizadas. Permite crear cosas que nunca antes se pudieron construir debido a las limitaciones de la tecnología subyacente.</li>
+<li><strong>Herramientas:</strong> Starknet se compromete a proporcionar una amplia gama de herramientas de desarrollo, incluyendo SDKs para diversos lenguajes, un marco de pruebas e implementación inspirado en Foundry (Protostar) y administradores de paquetes (Scarb).</li>
+</ul>
+<p>En este apartado exploraremos la arquitectura de Starknet y sus componentes fundamentales para comprender como es la construcción de aplicaciones web3 escalables. Te proporcionaremos un conocimiento profundo de los elementos clave de Starknet, permitiéndote desarrollar e implementar dApps de manera eficiente.</p>
 <p>A lo largo de este documento, abordaremos los siguientes temas: (MAL)</p>
 <ul>
 <li><strong>Nodos de L2:</strong> Una descripción general de los diferentes nodos de Starknet (Secuenciador, Verificador, Nodos completos e Indexador) y sus roles dentro de la red.</li>
@@ -186,22 +201,6 @@
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

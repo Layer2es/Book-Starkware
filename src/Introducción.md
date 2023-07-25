@@ -2,7 +2,7 @@
 
 ¡Hola comunidad! 👋
 
-Antes que nada nos gustaría expresar nuestro más sincero agradecimiento a todos aquellos que han contribuido y hecho posible la realización de esta exhaustiva investigación y documento sobre criptografía y como se adaptan en StarkWare. Especial reconocimiento a los expertos @X, @Y, @Z y @A, quienes han brindado sus valiosas correcciones y orientación en numerosos aspectos del trabajo. Su experiencia y conocimientos han sido fundamentales para alcanzar los resultados y conclusiones presentados en este informe.
+Antes que nada nos gustaría expresar nuestro más sincero agradecimiento a todos aquellos que han contribuido y hecho posible la realización de esta exhaustiva investigación y documento sobre criptografía y como se adaptan en StarkWare. Especial reconocimiento a los expertos que han colaborado en su creación y a [Carlos](https://twitter.com/0xhasher_) que ha brindado sus valiosas correcciones y orientación en numerosos aspectos del trabajo. Sus experiencias y conocimientos han sido fundamentales para alcanzar los resultados y conclusiones presentados en este informe.
 
 En esta ocasión, estamos emocionados de presentar una serie de artículos profundos sobre el desarrollo detrás de Starkware. Recomendamos a los lectores que previamente hayan leído otros documentos y tengan conocimientos técnicos para una mejor comprensión, para este documento en concreto recomendamos:
 

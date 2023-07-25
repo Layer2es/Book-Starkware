@@ -145,9 +145,9 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="iops---interactive-oracle-proof"><a class="header" href="#iops---interactive-oracle-proof">IOPs - Interactive Oracle Proof</a></h1>
-<p>Las Interactive Orcale Proof <a href="https://eprint.iacr.org/2016/116"><strong>(IOP)</strong></a> son un nuevo tipo de sistema de prueba que combina las propiedades clave de <strong>pruebas interactivas</strong> y <strong>PCP</strong>, las <strong>IOP</strong> permiten que un verifier esté convencido de la exactitud de una declaración al interactuar con un prover no confiable mientras lee solo algunos bits de los mensajes enviados por el prover. Las <strong>IOP</strong> se han vuelto muy prominentes en el diseño de sistemas de prueba eficientes en los últimos años.</p>
+<p>Las Interactive Oracle Proof <a href="https://eprint.iacr.org/2016/116"><strong>(IOP)</strong></a> son un nuevo tipo de sistema de prueba que combina las propiedades clave de <strong>pruebas interactivas</strong> y <strong>PCP</strong>, las <strong>IOP</strong> permiten que un verifier esté convencido de la exactitud de una declaración al interactuar con un prover no confiable mientras lee solo algunos bits de los mensajes enviados por el prover. Las <strong>IOP</strong> se han vuelto muy prominentes en el diseño de sistemas de prueba eficientes en los últimos años.</p>
 <blockquote>
-<p><strong>Las construcciones STARK eficientes se obtienen combinando IOP eficientes y funciones hash criptográficas. El IOP le confiere al STARK su escalabilidad, mientras que la función hash le confiere al STARK su transparencia.</strong></p>
+<p><strong>Las construcciones STARK eficientes se obtienen combinando IOP eficientes y funciones hash criptográficas. La IOP le confiere al STARK su escalabilidad, mientras que la función hash le confiere al STARK su transparencia.</strong></p>
 </blockquote>
 <p>Las STARKs eficientes se basan en IOP, de manera informal, un prover y un verifier participan en un protocolo interactivo en el que, en cada ronda, el verifier envía algo de aleatoriedad <code>𝛔ᵢ</code> al prover, y el prover responde con una proof larga <code>𝚿ᵢ</code>. Al final de la interacción, el verificador realiza una verificación local aleatoria de todas las proof largas <code>(𝚿₁,𝚿₂,…)</code> enviadas por el prover a lo largo de la interacción.</p>
 <p>Ahora, antes de sumergirnos en el mundo de los pasos de creación de un STARKs y su eficiencia, es importante comprender qué es un polinomio, ya que desempeñan un papel crucial en la construcción y verificación de STARKs. Son utilizados para representar y manipular datos de manera eficiente, lo que permite lograr un alto nivel de compresión y optimización en el proceso de verificación.</p>
@@ -181,22 +181,6 @@
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

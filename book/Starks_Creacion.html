@@ -145,7 +145,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="creando-un-stark"><a class="header" href="#creando-un-stark">Creando un STARK</a></h1>
-<p>En esta parte final del documento y después de haber explicado algunas propiedades  importantes de los polinomios y que resuelven, exploraremos la creación de una STARK desde los fundamentos matemáticos más profundos. Para obtener una comprensión completa de los procesos involucrados y cómo se puede combinar un PCP con criptografía ligera para obtener un STARK, te recomendamos revisar la serie lanzada por Starkware,que proporciona una profundización inicial más detallada.</p>
+<p>En esta parte final del documento y después de haber explicado algunas propiedades  importantes de los polinomios y qué resuelven, exploraremos la creación de una STARK desde los fundamentos matemáticos más profundos. Para obtener una comprensión completa de los procesos involucrados y cómo se puede combinar un PCP con criptografía ligera para obtener un STARK, te recomendamos revisar la serie lanzada por Starkware,que proporciona una profundización inicial más detallada.</p>
 <p>Además, encontrarás a continuación los enlaces a cinco artículos fundamentales  traducidos al español que complementarán tu aprendizaje:</p>
 <ol>
 <li><a href="https://github.com/Starknet-Es/Maths-StarknetEs/blob/main/Gu%C3%ADas%20Oficiales/Comienza%20el%20viaje.md">Comienza el Viaje</a></li>
@@ -154,7 +154,7 @@
 <li><a href="https://github.com/Starknet-Es/Maths-StarknetEs/blob/main/Gu%C3%ADas%20Oficiales/Prueba%20de%20bajo%20grado.md">Pruebas de Bajo Grado</a></li>
 <li><a href="https://github.com/Starknet-Es/Maths-StarknetEs/blob/main/Gu%C3%ADas%20Oficiales/Un%20marco%20para%20STARKs%20eficientes.md">Un Frameword para STARKs Eficientes</a></li>
 </ol>
-<p>Estos recursos adicionales te brindarán una visión más completa y práctica del proceso de creación de una STARK. También te recomendamos revisar los repositorios relacionados y los videos de creación de una STARK en Pioneros Clases 3, un Basecamp descentralizado en Español creado por Starknet, o el den inglés impartido por Eli Ben Saason</p>
+<p>Estos recursos adicionales te brindarán una visión más completa y práctica del proceso de creación de una STARK. También te recomendamos revisar los repositorios relacionados y los videos de creación de una STARK en Pioneros Clases 3, un Basecamp descentralizado en Español creado por Starknet, o el de inglés impartido por Eli Ben-Sasson</p>
 <p>Nos interesa la Integridad Computacional (CI), por ejemplo, saber que el programa de Cairo que escribiste se calculó correctamente.</p>
 <ul>
 <li>Tenemos que pasar por una serie de transformaciones desde el trazado de nuestro programa, hasta la prueba.</li>
@@ -204,22 +204,6 @@
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

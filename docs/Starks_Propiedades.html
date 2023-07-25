@@ -147,7 +147,7 @@
                         <h2 id="propiedas-de-las-starks"><a class="header" href="#propiedas-de-las-starks">Propiedas de las STARKs</a></h2>
 <p>Hemos visto cómo diferenciar los tipos de pruebas según su criptografía, así como la comparativa entre varias de ellas. Ahora veamos cuáles son las dos propiedades esenciales en las pruebas y cómo se pueden lograr, antes de pasar a la definición de STARK</p>
 <ol>
-<li><strong>Succintness (Sucintez):</strong> exigimos que nuestras pruebas y, en particular, el tiempo de verificación sean sucintos, es decir, que sean órdenes de magnitud más pequeños que el tiempo necesario para calcular nuestro programa. De lo contrario, no habría ninguna ventaja para el verificador en utilizar la prueba en lugar del cálculo original.</li>
+<li><strong>Succintness:</strong> exigimos que nuestras pruebas y, en particular, el tiempo de verificación sean sucintos, es decir, que sean órdenes de magnitud más pequeños que el tiempo necesario para calcular nuestro programa. De lo contrario, no habría ninguna ventaja para el verificador en utilizar la prueba en lugar del cálculo original.</li>
 <li><strong>Heurística Fiat-Shamir:</strong> este es un proceso mediante el cual podemos convertir una prueba interactiva en una no interactiva. Funciona proporcionando compromisos a los mensajes que formarían la interacción y las funciones hash se utilizan como fuente de aleatoriedad.</li>
 </ol>
 <p>Uno de los protocolos que se utiliza en sistemas criptográficos, como los STARKs, para abordar el desafío de verificar eficientemente la corrección de grandes cálculos polinomiales es FRI (Fast Reed-Solomon Interactive Oracle Proofs of Proximity).</p>
@@ -156,7 +156,7 @@
 <p>El conjunto de operaciones matemáticas, bases criptográficas, FRI y otras propiedades, como Fiat-Shamir, permite que las STARKs logren seguridad cuántica y escalabilidad, al tiempo que proporcionan una verificación transparente y eficiente de cálculos complejos.</p>
 </blockquote>
 <p>Podemos decir entonces que los STARKs demuestran la correcta operación de una máquina virtual al demostrar que la traza de ejecución asociada es válida con respecto al AIR dado. En términos generales, las trazas de ejecución se organizan como tablas de números, y el protocolo STARK demuestra que estos números resuelven conjuntamente un sistema de polinomios.</p>
-<p>Así vemos cómo algunas de estas propiedades, como la succintez, pueden venir de forma natural en las STARKs, y cómo el principio de Fiat-Shamir permite realizar pruebas interactivas. Además, contar con FRI como corrección de errores amplía las capacidades y visión de las STARKs, así que ahora vayamos a su definición</p>
+<p>Así vemos cómo algunas de estas propiedades, como <code>Succintness</code>, pueden venir de forma natural en las STARKs, y cómo el principio de Fiat-Shamir permite realizar pruebas interactivas. Además, contar con FRI como corrección de errores amplía las capacidades y visión de las STARKs, así que ahora vayamos a su definición</p>
 <h2 id="s--scalable"><a class="header" href="#s--scalable">S = Scalable</a></h2>
 <p>Una de las principales ventajas de STARKs es que al trasladar un cálculo fuera de la cadena, se reducen de manera exponencial los costos de verificación en la cadena de bloques. El proceso de creación de una prueba fuera de la cadena tiene un costo similar al de solicitar a un único nodo de la cadena de bloques que realice el cálculo.</p>
 <p>La producción de pruebas no resulta considerablemente más costosa que la ejecución del cálculo original, y la validación de las pruebas es <strong>exponencialmente más rápida</strong> que la ejecución del cálculo original. Además, las pruebas son <strong>considerablemente más cortas</strong> en tamaño que el cálculo original.</p>
@@ -165,16 +165,16 @@
 <div align="center">
 <em></em>
 </div>
-<p>Además, se puede aprovechar la capacidad de paralelización de pruebas por el prover y recursividad de los STRAKs eficentes para mejorar significativamente la escalabilidad.</p>
+<p>Además, se puede aprovechar la capacidad de paralelización de pruebas por el prover y recursividad de los STARKs eficentes para mejorar significativamente la escalabilidad.</p>
 <p><img src="./assets//Stark_3.gif" alt="graph" /></p>
 <div align="center">
 <em></em>
 </div>
 <h2 id="t--transparent"><a class="header" href="#t--transparent">T = Transparent</a></h2>
 <p>La seguridad de las STARKs no depende de ceremonias de configuración elaboradas que puedan generar residuos tóxicos criptográficos, como ocurre en otras tecnologías de pruebas.</p>
-<p>El uso de STARKs para iniciar la prueba basándose en criptografía simétrica, pseudoaleatoriedad y las matemáticas proporciona un inicio de ceremonia transparente y elimina la necesidad de una configuración de confianza inicial (trusted setup), lo que asegura la ausencia de residuos tóxicos y mejora la seguridad y confiabilidad general del sistema criptográfico.</p>
+<p>El uso de STARKs que tienen una base matemática compleja y que utilizan pseudoaleatoriedad proporciona un inicio de ceremonia transparente y elimina la necesidad de una configuración de confianza inicial (trusted setup), lo que mejora la seguridad y confiabilidad general del sistema criptográfico.</p>
 <p>Una característica importante de las STARKs es su construcción basada en el trabajo de <a href="https://es.wikipedia.org/wiki/Silvio_Micali">Micali</a>. En esta construcción, la única criptografía necesaria para producir o validar una prueba corta <code>𝛑</code> es una <strong>función hash criptográfica</strong> <code>H</code>, como <code>SHA-256</code> o <code>Keccak</code>. La elección de <code>H</code> se convierte en el único <strong>&quot;parámetro global&quot;</strong> que todos los usuarios del sistema de prueba deben conocer, y <strong>esta elección puede hacerse de manera pública, garantizando la transparencia de las pruebas criptográficas obtenidas a través de las STARKs.</strong></p>
-<p>Sin embargo siempre comparamos STARKs con SNARKs o pruebas derivadas de criptografía asimétrica como las <a href="https://eprint.iacr.org/2013/279.pdf">Pinocchio</a> de ECC, pero cada una tiene sus varientes y esquemas diversos,  aunque para una explicación más clara cogeremos el ejemplo de <a href="https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6">VB en un artículo sobre zk-SNARKs</a>.</p>
+<p>Sin embargo siempre comparamos STARKs con SNARKs o pruebas derivadas de criptografía asimétrica como las <a href="https://eprint.iacr.org/2013/279.pdf">Pinocchio</a> de ECC, pero cada una tiene sus varientes y esquemas diversos, aunque para una explicación más clara cogeremos el ejemplo de <a href="https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6">VB en un artículo sobre zk-SNARKs</a>.</p>
 <p><img src="./assets//Stark_4.png" alt="graph" /></p>
 <div align="center">
 <em></em>
