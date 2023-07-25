@@ -7,7 +7,7 @@ El verifier **PCP**, al recibir la misma declaración de **CI** `(A, x, y, T)`, 
 
 Si la declaración de CI es verdadera, el verifier siempre aceptará. Sin embargo, si la declaración de CI es falsa, el verificador la rechazará con alta probabilidad, sin importar cómo se haya elegido la cadena de prueba `𝚿`.
 
-![graph](./assets/Stark_Sudoku.png)
+![graph](./assets/Stark_Sudoku.gif)
 <div align="center">
 <em></em>
 </div>
