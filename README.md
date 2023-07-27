@@ -5,7 +5,11 @@ Libro de L2 en Español con Información en general del ecosistema de Starkware
 
 mdBook es una herramienta que te permite crear libros y documentación en formato HTML a partir de archivos Markdown. 
 
-1. **Instala Rust**: mdBook está escrito en Rust, por lo que primero debes asegurarte de tener Rust y su herramienta de gestión de paquetes, Cargo, instalados en tu sistema. Puedes instalar Rust utilizando rustup siguiendo las instrucciones en [rustup.rs](https://rustup.rs/).
+1. **Instala Rust**: mdBook está escrito en Rust, por lo que primero debes asegurarte de tener Rust y su herramienta de gestión de paquetes, Cargo, instalados en tu sistema. Puedes instalar Rust utilizando rustup siguiendo las instrucciones en [rustup.rs](https://rustup.rs/), aunque el comando que puede utilizar previo revisar documentación:
+
+    ```
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    ```
 
 2. **Instala mdBook**: Con Rust y Cargo instalados, ahora puedes instalar mdBook. Abre una terminal o línea de comandos y ejecuta el siguiente comando:
 
