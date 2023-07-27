@@ -1,5 +1,5 @@
 # Starknet y Funciones Hash
-Hemos visto la importancia de las firmas, el poder de AA y la asociación de los hash dentro del ecosistema de Starknet y StarkEx. Ahora, profundicemos en cómo se utilizan y los diferentes tipos de hash que podemos encontrar.
+En capítulos anteriores aprendimos la importancia de las firmas, el poder de AA y la asociación de los hash dentro del ecosistema de Starknet y StarkEx. Ahora, profundicemos en cómo se utilizan y los diferentes tipos de hash que podemos encontrar.
 
 ## Dominio y rango
 Todas las salidas de las funciones de hash se mapean eventualmente a elementos en `𝔽ₚ` con `p = 2²⁵¹ + 17 ⋅ 2¹⁹² + 1` como vimos en la Stark Curve.

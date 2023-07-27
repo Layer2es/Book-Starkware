@@ -1,5 +1,5 @@
 # Funciones hash y funciones hash criptográficas
-Este apartado es de suma importancia para comprender el funcionamiento de las funciones hash. A diferencia de los esquemas de cifrado o las firmas, las funciones hash no requieren de una clave. Cualquier persona puede calcular el hash de una entrada determinada, y la función hash siempre producirá la misma salida para la misma entrada.
+Este capítulo es de suma importancia para comprender el funcionamiento de las funciones hash. A diferencia de los esquemas de cifrado o las firmas, las funciones hash no requieren de una clave. Cualquier persona puede calcular el hash de una entrada determinada, y la función hash siempre producirá la misma salida para la misma entrada.
 
 Así que podemos definir una [**función hash**](https://en.wikipedia.org/wiki/Hash_function) como un algoritmo que toma una entrada, como un mensaje o un archivo, y produce una salida de longitud fija llamada hash o resumen. Esta salida es única para cada entrada específica, lo que permite la verificación de la integridad de los datos y garantiza que cualquier cambio en la entrada resultará en un hash completamente diferente.
 

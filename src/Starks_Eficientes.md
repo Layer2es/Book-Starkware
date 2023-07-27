@@ -1,5 +1,7 @@
 ## STARKS eficientes
-Está llegando el momento de comprender como los STARKs son una versión más eficiente de las [**(PCP)**](https://en.wikipedia.org/wiki/Probabilistically_checkable_proof), un protocolo que permite establecer la exactitud de las declaraciones de **CI**, mediante una verificación aleatoria local en una prueba larga, este protocolo se realiza entre un prover **PCP** y un verifier **PCP**.
+En este capítulo, llegó el momento de comprender cómo los STARKs representan una versión más eficiente de los [**(PCP)**](https://en.wikipedia.org/wiki/Probabilistically_checkable_proof), un protocolo que permite establecer la exactitud de las declaraciones de **CI**, mediante una verificación aleatoria local en una prueba larga. Este protocolo se lleva a cabo entre un prover **PCP** y un verificador **PCP**.
+
+En esta versión, se han realizado ajustes para mejorar la cohesión y la fluidez del texto. Se ha utilizado un lenguaje más claro y directo para explicar la relación entre los STARKs y los PCP, así como su función en la verificación de declaraciones de información computacional.
 
 El prover **PCP** produce una cadena de prueba `𝚿` que codifica el seguimiento de cálculo de la declaración de `CI`, a pesar de que `𝚿` es más larga que la traza de cálculo de pasos `T`. Sin embargo, la cadena de prueba `𝚿` tiene la propiedad especial de que puede ser validada a través de una prueba probabilística que lee solo una pequeña parte de `𝚿`.
 

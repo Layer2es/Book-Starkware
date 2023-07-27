@@ -1,5 +1,5 @@
 ## Criptografía basada en Lattice previene Shor
-Ahora deberemos aprender cómo una verificación de esquemas de firmas puede ser lo suficientemente fuerte para prevenirnos contra un posible ataque ejecutado con el algoritmo de Shor, la criptografía basada en retículos [**(Lattice)**](https://es.wikipedia.org/wiki/Criptograf%C3%ADa_basada_en_ret%C3%ADculos), es una forma segura de protegerse frente a muchos algoritmos.
+En este capítulo aprenderemos cómo una verificación de esquemas de firmas puede ser lo suficientemente fuerte para prevenirnos contra un posible ataque ejecutado con el algoritmo de Shor, la criptografía basada en retículos [**(Lattice)**](https://es.wikipedia.org/wiki/Criptograf%C3%ADa_basada_en_ret%C3%ADculos), es una forma segura de protegerse frente a muchos algoritmos.
 
 Pensemos en un [retículo](https://es.wikipedia.org/wiki/Red_(grupo)), como una estructura matemática que se forma mediante una red de puntos en un espacio n-dimensional. Es similar a una cuadrícula o una rejilla en dos dimensiones, pero se extiende a cualquier número de dimensiones. Cada punto en el retículo está ubicado en una posición determinada y está conectado a los puntos vecinos por líneas rectas de igual longitud.
 

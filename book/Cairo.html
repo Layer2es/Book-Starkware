@@ -145,7 +145,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="leve-introducción-cairo"><a class="header" href="#leve-introducción-cairo">Leve introducción Cairo</a></h1>
-<p>Como último apartado para finalizar este documento, antes de adentrarnos en los próximos temas sobre la arquitectura de Starknet y Cairo, haremos una breve introducción a Cairo y su relación con la CVM. En este contexto, es relevante comprender cómo todos los pasos de un cálculo pueden ser representados mediante polinomios, utilizando lo que se conoce como la Representación Algebraica Intermedia (AIR).</p>
+<p>Para concluir esta primera parte del L2 Book sobre Starkware, antes de adentrarnos en los próximos temas sobre la arquitectura de Starknet y Cairo, haremos una breve introducción a Cairo y su relación con la CVM (Máquina Virtual de Cairo). En este contexto, es relevante comprender cómo todos los pasos de un cálculo pueden ser representados mediante polinomios, utilizando lo que se conoce como la Representación Algebraica Intermedia (AIR).</p>
 <p>Los bloques de cálculo pueden ser representados como AIR y tienen la capacidad de combinarse entre sí, lo que se convierte en la base de Cairo. Para ilustrarlo mediante una analogía con el hardware:</p>
 <ul>
 <li><strong>ASIC (AIR)</strong></li>
@@ -155,11 +155,11 @@
 <ul>
 <li><strong>(CPU-AIR, Oh genial -&gt; CAIRO)</strong></li>
 </ul>
-<p>Cairo es un lenguaje funcional de alto nivel, no determinista y Turing completo, que cuenta con un modelo de memoria basado en registros y un compilador, el cual  produce una tabla de pasos computacionales llamada traza.</p>
+<p>Cairo es un lenguaje funcional de alto nivel, no determinista y Turing completo, que cuenta con un modelo de memoria basado en registros y un compilador que produce una tabla de pasos computacionales llamada traza.</p>
 <blockquote>
 <p>En los programas escritos en Cairo, se especifican los resultados que se consideran aceptables, no cómo obtenerlos.</p>
 </blockquote>
-<p>Vimos como en el proceso de construcción de pruebas STARK, el prover utiliza esta traza para crear Representaciones Algebraicas Intermedias (AIRs), que luego se combinan y se convierten en pruebas STARK.</p>
+<p>En los capítulos anteriores, hemos visto cómo, en el proceso de construcción de pruebas STARK, el prover utiliza esta traza para crear Representaciones Algebraicas Intermedias (AIRs). Posteriormente, estas AIRs se combinan y convierten en pruebas STARK.</p>
 
                     </main>
 

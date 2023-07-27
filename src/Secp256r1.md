@@ -1,7 +1,9 @@
 # My Braavos - Secp256r1
-Empecemos con un dato que no habíamos comentando antes, la `k` en `sepc256k1` significa [**Koblitz**](https://es.wikipedia.org/wiki/Neal_Koblitz) y el `r` en `sepc256r1` significa random.
+Comencemos explorando un dato interesante relacionado con la curva elíptica vista en capítulos anteriores, la `secp256k1`. En este contexto, la `k` hace referencia a [**Koblitz**](https://es.wikipedia.org/wiki/Neal_Koblitz), un destacado matemático cuyas contribuciones fueron fundamentales para el desarrollo de la criptografía y la teoría de números.
 
-Braavos ha incorporado la firma y validación de transacciones utilizando `secp256r1`, lo que brinda una excelente experiencia al usuario final al permitir transacciones con firma biométrica en el dispositivo del usuario. Esto añade un nivel adicional de seguridad. Braavos ha presentado en su blog una [Pirámide de Seguridad AA](https://braavos.app/account-abstraction-security-pyramid/).
+Por otro lado, en el caso de `secp256r1`, la `r` significa `random`, resaltando el énfasis en el proceso de selección aleatoria de parámetros utilizado en esta curva elíptica.
+
+Braavos ha incorporado la firma y validación de transacciones utilizando `secp256r1`, lo que brinda una excelente experiencia al usuario final al permitir transacciones con firma biométrica directamente en el dispositivo del usuario, añadiendo así un nivel adicional de seguridad. Puedes encontrar más detalles sobre esta implementación en el [blog de Braavos](https://braavos.app/account-abstraction-security-pyramid/), donde presentan una interesante Pirámide de Seguridad AA.
 
 ![graph](./assets/Mybraavos.png)
 <div align="center">

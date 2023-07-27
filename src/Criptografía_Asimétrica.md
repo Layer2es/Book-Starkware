@@ -1,5 +1,5 @@
 # Criptografía Asimétrica
-Ahora hablemos como el concepto de algoritmos criptográficos de clave asimétrica, fue un enfoque revolucionario que introdujo un concepto completamente diferente, **el uso de un par de claves complementarias, una pública y una privada**, para asegurar la confidencialidad de los datos. Cada clave del par tenía una función específica:
+El concepto de algoritmos criptográficos de clave asimétrica, fue un enfoque revolucionario que introdujo un concepto completamente diferente, **el uso de un par de claves complementarias, una pública y una privada**, para asegurar la confidencialidad de los datos. Cada clave del par tenía una función específica:
 
 * **Public key**: esta clave pública se compartía abiertamente y se utilizaba para cifrar la información.
 * **Private key:** esta clave privada se guardaba cuidadosamente y se utilizaba para descifrarla.

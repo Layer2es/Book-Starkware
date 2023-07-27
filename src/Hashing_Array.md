@@ -1,5 +1,5 @@
 # Hashing de Array (matrices)
-Estas definiciones explican cómo se realizan los hashing de matrices utilizando las funciones Pedersen y Poseidon en el contexto de Starknet. Estas operaciones son fundamentales para asegurar la integridad y la seguridad de los cálculos realizados en el sistema.
+En este capítulo, explicaremos cómo se realizan los hashings de Arrays (matrices) utilizando las funciones Pedersen y Poseidon en el contexto de Starknet. Estas operaciones son fundamentales para garantizar la integridad y seguridad de los cálculos realizados en el sistema.
 
 El hashing de un array implica aplicar la función de hash correspondiente a cada elemento del array, de manera secuencial o iterativa. Esto permite resumir y representar de manera compacta la información contenida en el array, independientemente de su longitud o contenido específico.
 

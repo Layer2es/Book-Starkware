@@ -1,5 +1,5 @@
 # Kyber Crystal
-En el último estudio post-quantum veremos [**Kyber**](https://pq-crystals.org/kyber/resources.shtml), antes de entrar dentro del ecosistema de Starkware y aprender cómo se generan los contratos de cuentas, así como las características criptográficas y matemáticas detrás de las STARKs.
+En este estudio post-quantum veremos [**Kyber**](https://pq-crystals.org/kyber/resources.shtml), antes de entrar dentro del ecosistema de Starkware y aprender cómo se generan los contratos de cuentas, así como las características criptográficas y matemáticas detrás de las STARKs.
 
 Kyber es un método de encapsulación de clave [(KEM)](https://en.wikipedia.org/wiki/Key_encapsulation) diseñado para resistir ataques criptoanalíticos realizados por futuras computadoras cuánticas poderosas. Se utiliza para establecer un secreto compartido entre dos partes que se comunican, sin que un atacante [(IND-CCA2)](https://en.wikipedia.org/wiki/Ciphertext_indistinguishability) en el sistema de transmisión pueda descifrarlo. Este criptosistema asimétrico utiliza una variante del problema de redes de aprendizaje con errores [(learning with errors, LWE)](https://en.wikipedia.org/wiki/Learning_with_errors) como su [función básica con trampa](https://en.wikipedia.org/wiki/Trapdoor_function). Ganó la competencia del NIST para el primer estándar de criptografía PQ.
 

@@ -1,7 +1,7 @@
 # Polinomio para nuestra traza
-También en este caso definimos un polinomio `f(x)` tal que los elementos de la traza de ejecución son evaluaciones de `f` en potencias de algún generador `g`.
+Siguiendo el capítulo anterior, en esta ocasión continuaremos definiendo un polinomio `f(x)` en el que los elementos de la traza de ejecución se obtienen a través de  evaluaciones de `f` en potencias de algún generador `g`.
 
-Recordemos que nuestro campo finito tendrá generadores, que utilizaremos para indexar los pasos de nuestra traza. Tomando una secuencia de Fibonacci podemos crear restricciones como:
+Recordemos que nuestro campo finito tiene generadores, los cuales utilizaremos para indexar los pasos de la traza. Para ello, consideraremos una secuencia de Fibonacci que nos permitirá establecer restricciones específicas, como la siguiente:
 
 * `∀ x ∈ {1,g²,g³...g⁵⁰⁹}: f(g²x) ₋ f(gx) ₋ f(x) = 0`
 

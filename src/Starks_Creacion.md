@@ -1,7 +1,7 @@
 # Creando un STARK
-En esta parte final del documento y después de haber explicado algunas propiedades  importantes de los polinomios y qué resuelven, exploraremos la creación de una STARK desde los fundamentos matemáticos más profundos. Para obtener una comprensión completa de los procesos involucrados y cómo se puede combinar un PCP con criptografía ligera para obtener un STARK, te recomendamos revisar la serie lanzada por Starkware,que proporciona una profundización inicial más detallada.
+En los próximos capítulos del Libro de L2 sobre StarkWare, después de haber explicado algunas propiedades importantes de los polinomios y su relevancia, exploraremos la creación de un STARK desde sus fundamentos matemáticos más profundos. Para obtener una comprensión completa de los procesos involucrados y cómo se puede combinar un `PCP` con criptografía ligera para obtener un STARK, te recomendamos revisar la serie lanzada por Starkware, la cual ofrece una profundización más detallada desde el inicio.
 
-Además, encontrarás a continuación los enlaces a cinco artículos fundamentales  traducidos al español que complementarán tu aprendizaje:
+A continuación os dejaremos los enlaces a cinco artículos fundamentales traducidos al español que complementarán tu aprendizaje:
 
 1. [Comienza el Viaje](https://github.com/Starknet-Es/Maths-StarknetEs/blob/main/Gu%C3%ADas%20Oficiales/Comienza%20el%20viaje.md)
 2. [Aritmetización I](https://github.com/Starknet-Es/Maths-StarknetEs/blob/main/Gu%C3%ADas%20Oficiales/Aritmetizaci%C3%B3n%20I.md)
