@@ -1078,6 +1078,48 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <p>A medida que Starknet evoluciona, el desarrollo del secuenciador progresará, enfocándose en mejorar las capacidades y garantizar una integración perfecta con la red. Los desarrolladores trabajarán en nuevas características, como los mecanismos de tarifas, que se implementarán en los próximos lanzamientos como Memphis.</p>
 <p>La mejora continua y la optimización de los secuenciadores son vitales para el crecimiento sostenido de Starknet. La transición a secuenciadores basados en Rust y los esfuerzos continuos para mejorar su desempeño indudablemente contribuirán.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="madara---bases-de-su-arquitectura"><a class="header" href="#madara---bases-de-su-arquitectura">Madara - Bases de su arquitectura</a></h1>
+<p>Madara es mucho más que un secuenciador, ha sido diseñado por el equipo de exploración de Starkware, los poderosos <a href="https://github.com/keep-starknet-strange">Keep Starknet Strange</a>. Su enfoque modular, basado en Substrate (SDK) con el poder de Rust, lo convierte en un componente principal para escalar Starknet, ETH y darle al usuario y desarrollador la facilidad de adaptar sus dapps, montando capas 3, 4 o 5 modificables según su proyecto. Podrá utilizar y desplegar una pila de componentes de forma rápida y segura gracias a las STARKs y Cairo, usando la Cairo VM y el Blockifier para ejecutar programas o contratos de Cairo en Starknet.</p>
+<p>Defniamos en es capitulo sobre las bases de Madara la definicon de algunos conceptos que hemos nombrado y son importantes para este u otra arquitecutra:</p>
+<ul>
+<li>
+<p><strong>Substrate:</strong> es un Kit de desarrollo de software (SDK) que le permite construir cadenas de bloques específicas de la aplicación que pueden ejecutarse como servicios independientes o en paralelo con otras cadenas.</p>
+</li>
+<li>
+<p><strong>Blockifier:</strong> es una implementación de Rust para el componente de ejecución de transacciones en el secuenciador Starknet, a cargo de crear diferencias de estado “state distaff”  y bloques.</p>
+<ul>
+<li>Agregue la capacidad de ejecutar un bloque y generar un estado diff.</li>
+<li>Integre con el secuenciador StarkNet existente reemplazando su componente actual de bloqueo de transacciones, que está escrito en Python.</li>
+<li>Implemente la concurrencia optimista de la ejecución de transacciones.</li>
+<li>Extienda el Blockifier en un secuenciador completo de StarkNet, escrito en Rust, reemplazando el que está actualmente en uso.</li>
+</ul>
+</li>
+<li>
+<p><strong>Palet:</strong> El componente central de Madara es el starknet palet. Proporciona una capa de compatibilidad Starknet para Substrate. El código existente de El Cairo se puede ejecutar sin problemas gracias a esto. Esta paleta, además de tener un módulo RPC, permite la emulación de bloques Starknet, valida las transacciones codificadas por Starknet y permite implementar un Starknet DApp existente en Madara sin ningún cambio.</p>
+</li>
+<li>
+<p><strong>Paridad de bloques:</strong> Wrapper block es una estrategia en Substrate para permitirle procesar bloques que no fueron diseñados originalmente con Substrate en mente, este método fue utilizado por primera vez por Parity en la frontera, la capa de compatibilidad EVM para Substrate.</p>
+</li>
+<li>
+<p><strong>Stack de Madara:</strong> El Stack de Madara consta de tres componentes clave: Ejecución, Asentamiento y Secuenciación.</p>
+<ul>
+<li>
+<p><strong>Ejecución:</strong> Define cómo se ejecutan los bloques y se producen las diferencias de estado. Permite cambiar entre Blockifier (por Starkware) y starknet_in_rust (por LambdaClass) para una mayor optimización con el tiempo.</p>
+</li>
+<li>
+<p><strong>Settlement:</strong> Permite construir el estado de la cadena Madara solo mirando su capa de asentamiento. No hace suposiciones sobre la capa de asentamiento elegida y permite establecer la finalidad Hard y Soft según el contexto.</p>
+</li>
+<li>
+<p><strong>Sequencing:</strong> Realizada por Madara, se puede modificar para satisfacer diferentes necesidades. Puede ser un FCFS, PGA simple o esquemas más complejos como Narwhall &amp; Bullshark o HotStuff, que se basa en el protocolo PBFT.</p>
+</li>
+<li>
+<p><strong>Gobernanza:</strong> La gobernanza en Madara se basa principalmente en la SnapShot X, un sistema totalmente en cadena que utiliza pruebas de almacenamiento. Además, se están explorando otros mecanismos de gobernanza, como el sustrato nativo palet de gobernanza.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Con estos puntos clave, hemos querido reforzar los conceptos básicos de Madara y evitar enfocarlo únicamente como un secuenciador. Su enfoque modular, adaptado a Starknet y centrado en el escalado fractal, permitirá ver fusiones de componentes que superarán lo imaginado. Además, muchos desarrollos, como el Starknet Stack de Lambda, podrán ser optimizados o, al menos, facilitar el cambio entre ambas cajas de ejecución (Blockifier y Starknet_in_Rust) de manera muy eficiente.</p>
+<p>Con este enfoque, Madara en Substrate nos brinda la posibilidad de tener nuevas cadenas subyacentes con diversas formas de almacenar datos y diferentes protocolos de consenso, como Celestia. También permite implementar diversas arquitecturas, como Kakarot, un zkEVM que interpreta el lenguaje de Solidity y lo ejecuta en Cairo. Esto proporciona una mayor compatibilidad y la opción de optimizarlo como un tipo 1 zkEVM, o incluso motores de juegos completos como Dojo, que ofrecen una creación sencilla, flexible y adaptada a sus necesidades. </p>
+<p>Con todas estas capacidades, Madara va mucho más allá de ser solo un secuenciador, como mencionamos al principio.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="starknet-kraken-sequencer"><a class="header" href="#starknet-kraken-sequencer">Starknet Kraken Sequencer</a></h1>
 <p>Una implementación descentralizada del secuenciador de Starknet.</p>
 <h2 id="para-empezar"><a class="header" href="#para-empezar">Para empezar</a></h2>
@@ -1234,6 +1276,15 @@ La combinación de criptografía de clave pública para el intercambio de claves
 <div style="break-before: page; page-break-before: always;"></div><p>https://github.com/patrickbiel01/Cairo_Verifier</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quantum-leap"><a class="header" href="#quantum-leap">Quantum Leap</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="versiones"><a class="header" href="#versiones">Versiones</a></h1>
+<p>Puede <a href="https://www.starknet.io/en/roadmap">consultar el roadmap</a> con cada uno de sus estados desde la páginal oficial, les dejamos un resumen de lo más importante.</p>
+<p><strong>Versión 0.12.1:</strong> en esta versión se introdujo otra mejora significativa al incluir transacciones fallidas en el bloque. Anteriormente, en versiones anteriores a la 0.12, las transacciones fallidas no se incluían en el bloque, lo que resultaba en problemas para el Sequencer al no poder cobrar tarifas ni avanzar el nonce correspondiente a esas transacciones. Esta situación generaba inconvenientes en la experiencia de usuario para los desarrolladores, ya que debían monitorear constantemente el estado de las transacciones antes de enviar nuevas transacciones, sin poder confiar en el avance del nonce. Con esta actualización, el Sequencer queda protegido de usuarios que intentan llenar el sistema con transacciones fallidas sin pagar por ellas.</p>
+<p><strong>Versión 0.13:</strong> en este lanzamiento previsto en su hoja de ruta para 2023, tiene como objetivo reducir significativamente los costos de transacción mediante la introducción del modo Volition, lo que permitirá una gama más amplia de casos de uso y empoderando a los desarrolladores y usuarios. El compromiso de reducir costos se alinea con la misión de Starknet de proporcionar una infraestructura escalable, flexible y rentable para aplicaciones descentralizadas.</p>
+<p>El modo Volition permitirá a los desarrolladores construir aplicaciones con un enfoque híbrido de DA, que incorpora tanto datos en cadena como fuera de cadena.</p>
+<p>Al aprovechar el modo Volition, Starknet prevé una reducción drástica en el costo de los datos. Se espera que esta reducción se logre a través de dos factores clave: la implementación del EIP-4844 de Ethereum (Shard Blob Transaction) y la introducción de Volition en sí.</p>
+<p><strong>Versión 0.14:</strong> en esta versión se introducirá un mercado de tarifas, conocido como &quot;Fee Market&quot;, para mejorar la experiencia del usuario durante la congestión de la red. Actualmente, cuando hay congestión, los tiempos de espera de las transacciones aumentan para todos. Para abordar este problema, Starknet planea implementar un mercado de tarifas en la versión 0.14.0. Este mercado permitirá asignar eficientemente los recursos limitados de Starknet en base a la disposición de los usuarios para pagar por una transacción, en lugar de simplemente seguir el orden de las transacciones en línea. El objetivo de este mercado de tarifas es proporcionar a los usuarios una experiencia más predecible y fluida, incluso en momentos de alta actividad en la red.</p>
+<p><strong>Versión 0.15:</strong> esta actualización permitirá un mejor manejo de las transacciones fallidas, destacando especialmente la implementación de Sierra para demostrar dichas transacciones. Esta adición garantiza una experiencia de red más confiable y robusta al reducir la frecuencia de las transacciones fallidas y mejorar la eficiencia general del procesamiento de transacciones.</p>
+<p>Además, Starknet aborda el problema de la variabilidad en los intervalos de bloque, que genera tiempos de espera impredecibles para las transacciones, a partir de la versión 0.15.0, se introducirán intervalos de bloque constantes y más cortos.</p>
+<p>Al desvincular la relación 1:1 entre un bloque de Starknet y su prueba, las pruebas podrán verificar la integridad de uno o más bloques de Starknet. Esta modificación establecerá intervalos de bloque fijos, lo que garantizará un comportamiento de red más consistente y predecible. El objetivo de la introducción de intervalos de bloque más cortos y fijos es mejorar significativamente la experiencia general del usuario en Starknet al reducir los tiempos de espera y permitir un procesamiento de transacciones más fluido y eficiente.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="starknet-stack-1"><a class="header" href="#starknet-stack-1">Starknet Stack</a></h1>
 <p>TL;DR (Too Long; Didn't Read):</p>
 <p>El Stack de Starknet está experimentando un crecimiento vertiginoso y permitirá lanzar tu propia instancia personalizada de Starknet para satisfacer tus necesidades. Starknet ya es la capa 2 más eficiente en términos de rendimiento, con la comunidad de desarrolladores de más rápido crecimiento y la pila Rollup más descentralizada, que incluye infraestructura clave desarrollada por múltiples equipos independientes. Pronto se lanzará la primera Starknet Appchain en Mainnet.</p>
