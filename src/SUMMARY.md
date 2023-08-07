@@ -102,6 +102,7 @@
         - [Lambda Sequencer 🚧](./Lambda_Sequencer.md)
         - [LambdaWorks 🚧](./Lambda_Work.md)
     - [Madara 🚧](./Madara.md)
+        - [Madara - Fusionando Fuerzas 🚧](./Madara_Fusionando_Fuerzas.md)
         - [Sharingan 🚧](./Sharingan.md)
     - [Otros Secuenciadores 🚧](./Otros_Secuenciadores.md)
          - [Katana 🚧](./Secuenciador_Katana.md)
