@@ -1,19 +1,32 @@
-# Starknet Kraken Sequencer
+# Starknet Kraken Sequencer 🚧
+En este capítulo, exploraremos Kraken, uno de los Secuenciadores que busca optimizar y mejorar el rendimiento. Kraken es una implementación descentralizada de un secuenciador diseñado por Lambda Class con el propósito de escalar Starknet. 
 
-Una implementación descentralizada del secuenciador de Starknet.
+> **Nota:** El código actual de consenso se basa en gran medida en la implementación de [Albert Sonnino's (asonnino) implementation](https://github.com/asonnino/hotstuff/), la cual se centró en la investigación en lugar de la aplicación. Las modificaciones fueron realizadas por Lambda Class, principalmente en la estructura del nodo, para permitir el procesamiento de transacciones para bloques confirmados.
 
-## Para empezar
+En este análisis detallaremos sus diferentes módulos y posibles implementaciones, analizemos como el secuenciador puede dividirse en (aproximadamente) 3 módulos intercambiables:
 
-> **Nota:** El código actual de consenso se basa en gran medida en la implementación de [Albert Sonnino's (asonnino) implementation](https://github.com/asonnino/hotstuff/), que se centró en la investigación en lugar de en la aplicación. Las modificaciones fueron realizadas por Lambda Class principalmente en la estructura del nodo para permitir el procesamiento de transacciones para bloques confirmados.
+## Módulo Mempool 
+El módulo Mempool, conocido como [**Narwhal**](https://arxiv.org/pdf/2105.11827.pdf), almacena las transacciones recibidas. Narwhal se especializa en la difusión y el almacenamiento de historias causales de transacciones. Está diseñado para funcionar con alta eficiencia en la difusión y almacenamiento de transacciones, tolerando incluso fallas en la red. Narwhal es escalable y puede ser implementado con múltiples trabajadores en cada validador, con un alto rendimiento demostrado. La investigación en Narwhal y Tusk propone la separación de la difusión confiable de transacciones de su ordenamiento, habilitando un consenso de alto rendimiento y tolerancia a fallas bizantinas. La combinación de Narwhal con un protocolo de consenso parcialmente sincrónico (Narwhal-HotStuff) mejora significativamente el rendimiento, manteniendo alta tolerancia a fallos.
 
-El objetivo de este proyecto es desplegar fácilmente un secuenciador descentralizado de capa 2 para Starknet. Esta será una de las múltiples implementaciones que seguirán al secuenciador descentralizado.
+Según los datos del Whitepaper, Narwhal-Hotstuff logra más de 130,000 tx/sec con una latencia inferior a 2 segundos en una WAN, en comparación con 1,800 tx/sec a 1 segundo de latencia para Hotstuff. La adición de trabajadores aumenta linealmente el rendimiento a 600,000 tx/sec sin aumento de latencia. Además, el protocolo Tusk ha sido diseñado para trabajar con Narwhal y lograr un rendimiento óptimo incluso bajo condiciones de fallo.
 
-El secuenciador se puede dividir en (aproximadamente) 3 módulos intercambiables:
+## Módulo de Consenso
+En el funcionamiento del secuenciador Kraken, el módulo de consenso desempeña un papel fundamental al ofrecer diversas alternativas para lograr acuerdos en el estado compartido. Estas opciones abarcan desde enfoques simples hasta esquemas más complejos, como el **FCFS (First-Come, First-Served)**, que organiza tareas según su recepción, **PGA (Practical Byzantine Fault Tolerance)**, un algoritmo que busca acuerdos en sistemas distribuidos a pesar de fallos o nodos maliciosos, y también esquemas más sofisticados como **Bullshark**, **Tendermint** y **Hotstuff**.
 
-- Mempool (Narwhal), que almacena las transacciones recibidas.
-- Consensus (Bullshark, Tendermint, Hotstuff), que ordena las transacciones almacenadas por el mempool.
-- Motor de ejecución, que ejecuta las transacciones en la máquina de estado. El sistema operativo es proporcionado por Starknet en Rust y la ejecución se delega en Cairo Native o Cairo-rs.
+- [**HotStuff:**](https://arxiv.org/pdf/1803.05069.pdf) es un protocolo de consenso basado en el algoritmo PBFT que destaca por su enfoque en la optimización de la latencia y el rendimiento. Su diseño permite la replicación de estado a alta velocidad en sistemas distribuidos. Introduciendo un enfoque basado en tolerancia a fallos bizantinos, HotStuff capacita a un líder confiable para guiar el protocolo hacia el consenso en línea con el retraso real de la red, en contraposición al retraso máximo, obteniendo una propiedad denominada capacidad de respuesta. Este logro se complementa con una complejidad de comunicación lineal en función del número de réplicas involucradas. En la esencia de su estructura, HotStuff supera el desafío de la replicación de la máquina de estado (SMR), logrando aplicar comandos de manera secuencial y coherente. En el núcleo de SMR reside un protocolo que rige la determinación de un registro en crecimiento de solicitudes de comandos procedentes de los clientes. De manera conjunta, un grupo de réplicas de la máquina de estado lleva a cabo la ejecución de estos comandos en orden secuencial y coherente. Si bien gran parte de la discusión excluye al cliente, la literatura estándar aborda aspectos relativos a la numeración y deduplicación de solicitudes de clientes.
 
-Con módulos intercambiables nos referimos a que la implementación del algoritmo subyacente en la comunicación del Mempool, el protocolo de Consenso o el Motor de ejecución se pueden cambiar y configurar.
+- [**Bullshark:**](https://arxiv.org/pdf/2201.05677.pdf) BullShark es un protocolo de difusión atómica asincrónica basado en gráficos acíclicos dirigidos (DAG) que está optimizado para el caso sincrónico común. A diferencia de otros protocolos asincrónicos basados en DAG, BullShark proporciona una ruta rápida de baja latencia que explota períodos sincrónicos y elimina la necesidad de mecanismos de cambio de vista y sincronización de vista notoriamente complejos. BullShark logra esto manteniendo todas las propiedades deseables de su predecesor DAG-Rider, incluyendo una complejidad de comunicación amortizada óptima, equidad y vida asincrónica, y garantizando la seguridad incluso ante un adversario cuántico.
 
-Además, para mantener y persistir el estado, hay un módulo de Estado que implementa  [PhotonDB](https://github.com/photondb/photondb) en una primera iteración.
+Mediante esta gama de opciones de consenso, Kraken se adapta con flexibilidad a diversos escenarios y requerimientos.
+
+## Módulo de Ejecución
+Ahora enfoquémonos en el motor de ejecución, el componente esencial encargado de procesar las transacciones en la máquina de estado. En Starknet, el sistema operativo está implementado en Rust, y la ejecución puede llevarse a cabo mediante [Cairo Native](https://github.com/lambdaclass/cairo_native) (un compilador que transforma el código de representación intermedia "Sierra" de Cairo en código de máquina a través de MLIR y LLVM) o [Cairo-rs](https://github.com/lambdaclass/cairo-vm) (una implementación más rápida y segura de la máquina virtual de Cairo en Rust). Esta adaptabilidad a través de múltiples opciones garantiza una operación eficiente y segura en el procesamiento de las transacciones.
+
+### Módulos Intercambiables
+Una característica clave de Kraken es su capacidad de intercambiar módulos. Esto implica que la implementación subyacente en la comunicación del Mempool, el protocolo de Consenso o el Motor de Ejecución puede personalizarse y adaptarse según las necesidades específicas de la red.
+
+Además, para mantener y persistir el estado, Kraken utiliza un módulo de Estado que implementa [PhotonDB](https://github.com/photondb/photondb) en una primera iteración. PhotonDB, un motor de almacenamiento de alto rendimiento diseñado para hardware y plataformas modernas, asegura una gestión adecuada y segura de los datos en el entorno descentralizado de Kraken.
+
+En resumen, Kraken emerge como un poderoso secuenciador descentralizado diseñado por Lambda Class para abordar los desafíos de escalabilidad en Starknet. A través de su enfoque en módulos intercambiables, Kraken ofrece flexibilidad y personalización, permitiendo adaptar su funcionamiento a diferentes necesidades y contextos. Además, su incorporación de tecnologías avanzadas como Narwhal, HotStuff, Bullshark o PhotonDB que contribuyen a mantener la coherencia y seguridad del estado en la red distribuida. 
+
+En última instancia, el secuenciador Kraken no solo demuestra su capacidad para procesar transacciones eficientemente, sino que también juega un papel esencial en la búsqueda continua de la descentralización en el Starknet.

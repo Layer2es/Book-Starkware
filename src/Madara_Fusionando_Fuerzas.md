@@ -7,7 +7,7 @@ Imagina a Madara como el sólido cimiento, un sustrato fundamental que establece
 
 Estas bases, que pueden optimizarse desde el componente de Madara gracias a Substrate y los Pallets, logran mejorar las características de escalabilidad, modularidad y seguridad, formando así una plataforma sólida y lista para recibir nuevas capas de innovación.
 
-Por otro lado, Kakarot asume el papel de un manto creativo, siendo la zkEVM en Starkent capaz de interpretar el lenguaje de Solidity y ejecutarlo en Cairo. Ambas capas o componentes están protegidos por Pruebas de Validez, donde en este caso, los STARKs aseguran la integridad de los datos, mientras que otros elementos potencian la descentralización y la eficiencia.
+Por otro lado, Kakarot asume el papel de un manto creativo, siendo la zkEVM en Starkent capaz de interpretar el lenguaje de Solidity y ejecutarlo en Cairo. Ambas capas o componentes están protegidos por Validity Proof, donde en este caso, los STARKs aseguran la integridad de los datos, mientras que otros elementos potencian la descentralización y la eficiencia.
 
 Esta simbiosis entre Madara y Kakarot establece los cimientos para un futuro emocionante y dinámico en el universo de las cadenas de bloques, allanando el camino hacia una mayor adopción y evolución tecnológica.
 

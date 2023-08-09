@@ -144,22 +144,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="starknet-kraken-sequencer"><a class="header" href="#starknet-kraken-sequencer">Starknet Kraken Sequencer</a></h1>
-<p>Una implementación descentralizada del secuenciador de Starknet.</p>
-<h2 id="para-empezar"><a class="header" href="#para-empezar">Para empezar</a></h2>
-<blockquote>
-<p><strong>Nota:</strong> El código actual de consenso se basa en gran medida en la implementación de <a href="https://github.com/asonnino/hotstuff/">Albert Sonnino's (asonnino)  implementation</a>, que se centró en la investigación en lugar de en la aplicación. Las modificaciones fueron realizadas por Lambda Class principalmente en la estructura del nodo para permitir el procesamiento de transacciones para bloques confirmados.</p>
-</blockquote>
-<p>El objetivo de este proyecto es desplegar fácilmente un secuenciador descentralizado de capa 2 para Starknet. Esta será una de las múltiples implementaciones que seguirán al secuenciador descentralizado.</p>
-<p>El secuenciador se puede dividir en (aproximadamente) 3 módulos intercambiables:</p>
-<ul>
-<li>Mempool (Narwhal), que almacena las transacciones recibidas.</li>
-<li>Consensus (Bullshark, Tendermint, Hotstuff), que ordena las transacciones almacenadas por el mempool.</li>
-<li>Motor de ejecución, que ejecuta las transacciones en la máquina de estado. El sistema operativo es proporcionado por Starknet en Rust y la ejecución se delega en Cairo Native o Cairo-rs.</li>
-</ul>
-<p>Con módulos intercambiables nos referimos a que la implementación del algoritmo subyacente en la comunicación del Mempool, el protocolo de Consenso o el Motor de ejecución se pueden cambiar y configurar.</p>
-<p>Además, para mantener y persistir el estado, hay un módulo de Estado que implementa  <a href="https://github.com/photondb/photondb">PhotonDB</a> en una primera iteración.</p>
-
+                        
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
