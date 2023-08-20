@@ -135,7 +135,7 @@ A continuación, mostramos un ejemplo de datos en cadena que se extrajeron de L1
 
 * hash_contrato:
 ```bash
-2472939307328371039455977650994226407024607754063562993856224077254594995194
+1336043477925910602175429627555369551262229712266217887481529642650907574765
 ```
 
 * El siguiente elemento `5` (índice 3 en el array), es el número de contratos cuyo almacenamiento se actualizó. Tomaremos solo el primer contrato como ejemplo.
