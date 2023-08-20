@@ -89,11 +89,33 @@
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
@@ -1626,13 +1648,59 @@ Cofundador y CEO, Argent</p>
 <p>Los builtins son unidades de ejecución de bajo nivel optimizadas predefinidas que se agregan a la placa de la CPU de Cairo para realizar cálculos predefinidos que son costosos de realizar en vainilla Cairo (por ejemplo, verificaciones de rango, hash de Pedersen, ECDSA, ...).</p>
 <p>Poseidon es una familia de funciones hash diseñadas para ser muy eficientes como circuitos algebraicos. Como tales, pueden ser muy útiles en sistemas de prueba ZK como STARK y otros.</p>
 <p>La comunicación entre la CPU y los builtins se realiza a través de la memoria: a cada builtin se le asigna un área continua en la memoria y aplica algunas restricciones (dependiendo de la definición del builtin) en las celdas de memoria en esa área. En términos de construcción del AIR, significa que agregar builtins no afecta las restricciones de la CPU. Simplemente significa que la misma memoria se comparte entre la CPU y los builtins.</p>
-<p>Para <code>invocar</code> un builtin, el programa de Cairo <code>se comunica</code> con ciertas celdas de memoria, y el builtin impone algunas restricc</p>
-<p>iones en esas celdas de memoria.</p>
-<p><strong>Gas por builtin:</strong> <a href="https://docs.starknet.io/documentation/architecture_and_concepts/Fees/fee-mechanism/#general_case">Mecanismo de tarifas</a></p>
-<p><strong>VM CPU AIR:</strong> Circuitos integrados en Cairo, no hace falta Circom, la aritmética se hace nativa con builtins, Dynamic layout (bosque oscuro...).</p>
-<p>Desde Lambda se hicieron pruebas para exportar Circom, Snark, Groth16, Plonk.</p>
-<p>Circom: <a href="https://github.com/lambdaclass/circom_export_to_cairo">Export to Cairo</a></p>
-<p>Vm en Rust con sequencer en Rust, mejoras de 10x (lanzado en v.0.12 haremos pruebas TPS y MPS en el explorador) posible consenso BFT.</p>
+<p>Para <code>invocar</code> un builtin, el programa de Cairo <code>se comunica</code> con ciertas celdas de memoria, y el builtin impone algunas restricciones en esas celdas de memoria.</p>
+<h2 id="fase-de-inicialización-y-ejecución-de-hints-en-la-cvm"><a class="header" href="#fase-de-inicialización-y-ejecución-de-hints-en-la-cvm">Fase de Inicialización y Ejecución de Hints en la CVM</a></h2>
+<p>La operación de la CVM involucra dos fases cruciales: la Fase de Inicialización y la Fase de Ejecución. Durante estas etapas, se administran y ejecutan las &quot;hints&quot; (pistas o indicaciones) que desempeñan un papel esencial en el procesamiento eficiente y seguro de programas. Los &quot;hints&quot; son fragmentos de información contextual que se incorporan en el código del programa, suministrando instrucciones específicas a la CVM durante su ejecución. Estas instrucciones abarcan desde detalles sobre el flujo de ejecución hasta orientaciones sobre las operaciones a llevar a cabo. Los &quot;hints&quot; ofrecen un mecanismo para optimizar y agilizar la ejecución de contratos inteligentes, al tiempo que garantizan su corrección y seguridad.</p>
+<p>En el ámbito de las pruebas en la cadena de bloques, los &quot;hints&quot; desempeñan un papel crucial en la generación y verificación de los STARKS. Los &quot;hints&quot; en este contexto proporcionan información adicional a los Provers y el Verifier, posibilitando la generación y revisión de pruebas con mayor precisión.</p>
+<p>A continuación, se desglosan los procesos inherentes a cada una de estas fases:</p>
+<h3 id="fase-de-inicialización"><a class="header" href="#fase-de-inicialización">Fase de Inicialización</a></h3>
+<p>En esta etapa inicial, se realizan una serie de actividades fundamentales:</p>
+<ol>
+<li>
+<p><strong>Carga del Programa:</strong> La fase se inicia con la disponibilidad de un archivo JSON compilado que encapsula detalles exhaustivos sobre un programa en la Máquina Virtual Cairo.</p>
+</li>
+<li>
+<p><strong>Sección de Hints:</strong> Dentro del archivo, una sección denominada &quot;hint&quot; alberga información detallada sobre cada &quot;hint&quot; presente en el programa.</p>
+</li>
+<li>
+<p><strong>Detalle de Hints:</strong> Cada &quot;hint&quot; contiene datos esenciales, como su código, los contextos en los que es accesible (principal, función actual, funciones integradas e incluso la ruta de importación en el caso de funciones importadas), seguimiento de flujo y las &quot;reference_ids&quot; que se vinculan a las variables con las que interactúa en su entorno.</p>
+</li>
+<li>
+<p><strong>Almacenamiento de Información:</strong> Al cargar el archivo JSON y crear un objeto &quot;Program&quot;, toda la información relacionada con los &quot;hints&quot; se organiza en un campo llamado &quot;hints&quot;, estructurado como un diccionario.</p>
+</li>
+<li>
+<p><strong>Carga y Asociación:</strong> En el inicio de la máquina virtual (VM) y la carga de los datos del programa a través de la función &quot;load_program&quot;, también se ejecuta la función &quot;load_hints&quot;. Esto da como resultado la creación de un diccionario que relaciona una dirección en el programa con una lista de &quot;hints&quot; compilados. Es posible que una misma dirección albergue varios &quot;hints&quot;.</p>
+</li>
+<li>
+<p><strong>Asignación de Identificadores:</strong> Además, se establece un mapeo que conecta un &quot;id&quot; (identificador único del &quot;hint&quot;) con una dirección y, en situaciones en las que existen múltiples &quot;hints&quot; en la misma dirección, se asigna un índice. Esta disposición facilita la identificación y gestión de los &quot;hints&quot;.</p>
+</li>
+<li>
+<p><strong>Compilación de Hints:</strong> La obtención de los &quot;hints&quot; compilados se lleva a cabo mediante la función &quot;compile&quot; de Python en modo de ejecución, utilizando el código inherente a cada &quot;hint&quot;.</p>
+</li>
+</ol>
+<h3 id="fase-de-ejecución"><a class="header" href="#fase-de-ejecución">Fase de Ejecución</a></h3>
+<p>La Fase de Ejecución abarca los siguientes pasos:</p>
+<ol>
+<li>
+<p><strong>Gestión de Hints:</strong> Al dar comienzo a un paso en la ejecución del programa, se inicia el manejo de los &quot;hints&quot;.</p>
+</li>
+<li>
+<p><strong>Recopilación y Exploración:</strong> Se reúne la lista de &quot;hints&quot; en la dirección actual del programa (si está presente) y se procede a iterar a través de ella.</p>
+</li>
+<li>
+<p><strong>Entorno de Ejecución:</strong> Se crea un diccionario llamado &quot;exec_locals&quot;, el cual encapsula información relevante. Esto incluye la entrada del programa, la memoria validada (&quot;validated_memory&quot;), los registros actuales (ap, fp, pc), el paso actual, los identificadores (que contienen memoria), ap, fp y pc como constantes, y algunas funciones específicas del programa.</p>
+</li>
+<li>
+<p><strong>Ejecución de Hints:</strong> Posteriormente, cada &quot;hint&quot; se ejecuta mediante la función &quot;exec&quot; de Python. En este contexto, el diccionario &quot;exec_locals&quot; se emplea como entorno de ejecución para estas operaciones.</p>
+</li>
+</ol>
+<h2 id="versiones-vm"><a class="header" href="#versiones-vm">Versiones VM</a></h2>
+<p>A medida que ha transcurrido el tiempo, se han implementado una serie de optimizaciones en varias versiones de la CVM. Nuestra atención se concentrará en el contexto del ecosistema desarrollado por Starkware, específicamente, exploraremos las distintas encarnaciones de la VM dentro de este marco. Sin embargo, es importante resaltar que el tema de las relaciones con las STARKs en diversos contextos, más allá de Starknet y otras arquitecturas, es un asunto amplio y diversificado que tiene varios espacios detallados en capítulos separados.</p>
+<ul>
+<li>Inicialmente, se creó la Máquina Virtual Cairo en Python por parte de Starkware, y durante varios años, esta versión fue el núcleo del ecosistema.</li>
+<li>Posteriormente, con Quantum Leap y la versión 0.12, se incorporó una implementación en Rust de la VM de Cairo, conocida como <a href="/https://github.com/lambdaclass/cairo-vm">cairo-vm en Rust</a>. Esta implementación en Rust logró un rendimiento destacado gracias a Lambda Class.</li>
+<li>Además, se encuentra en desarrollo una <a href="https://github.com/lambdaclass/cairo-vm.go">VM en GO</a> desde Lamda Class, esta implementación en curso de la Máquina Virtual Cairo en Go tiene múltiples objetivos, pero podemos destacar la <strong>Diversidad de Implementaciones</strong>. Contar con varias implementaciones contribuye a la detección de errores y fortalece todo el ecosistema, además de poder documentar ampliamente la Máquina Virtual en su conjunto.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="builtins-y-mecanismos-de-fee"><a class="header" href="#builtins-y-mecanismos-de-fee">Builtins y Mecanismos de Fee</a></h1>
 <p>En esta sección, revisaremos el mecanismo de tarifas de Starknet Alpha. Si desea omitir la motivación y profundizar en el mecanismo.</p>
 <p>Los usuarios pueden especificar la máxima tarifa que están dispuestos a pagar por una transacción a través del campo <code>max_fee</code>.</p>
